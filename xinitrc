@@ -2,3 +2,6 @@
 if [ -f $HOME/.Xmodmap ]; then
 	/usr/bin/xmodmap $HOME/.Xmodmap
 fi
+
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+

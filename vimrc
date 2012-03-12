@@ -13,7 +13,7 @@ filetype plugin indent on
 
 set shellslash
 if has("unix")
-    set shell=zshl
+    set shell=zsh
 else
     set shell=ksh.exe
 endif
@@ -23,6 +23,9 @@ set vb
 set backspace=2
 set hidden
 set cpoptions=B$
+
+autocmd FileType * set ai ts=4 sw=4 sts=4 sta et "autoindent tabstop shiftwidth softtabstop smarttab expandtab
+autocmd FileType javascript set ai ts=2 sw=2 sts=4 sta et
 
 " Set the status line the way i like it
 " adapted from https://github.com/derekwyatt/vim-config
