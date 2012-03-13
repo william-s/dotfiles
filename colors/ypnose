@@ -1,0 +1,44 @@
+! author:   Ypnose - http://tetedulinuxien.fr
+! modified: March 2012
+
+! Colours ----------------------------------
+
+!*background: #0d1016
+!*foreground: #5d77b7
+!*background: #0b0f16
+!*background: #0c111b
+!*background: #0f1219
+!*background: #0f1520
+*background: #0d111b
+!*foreground: #6782b5
+!*foreground: #859cc6
+!*foreground: #8fa2c6
+!*foreground: #a6b5d2
+!*foreground: #b5c5ff
+*foreground: #a7b9dc
+
+! Black
+!*color0: #0b0f16
+*color0: #0d111b
+*color8: #666666
+! Red
+*color1: #a64070
+*color9: #a65e80
+! Green
+*color2: #4a9b6c
+*color10: #6f9f09
+! Yellow
+*color3: #bc9c4f
+*color11: #edb36f
+! Blue
+*color4: #35679a
+*color12: #0387db
+! Magenta
+*color5: #724c98
+*color13: #7e62b3
+! Cyan 
+*color6: #4fb5db
+*color14: #12b5ff
+! White
+*color7: #8998a1
+*color15: #c0c0c0

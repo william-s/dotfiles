@@ -1,0 +1,42 @@
+! black/grey
+*background:             #060203
+*foreground:             #d9fdee
+*fading:                 40
+*fadeColor:              #060203
+*cursorColor:            #3856b8
+*pointerColorBackground: #1793d1
+*pointerColorForeground: #3856b8
+
+*color0:  #060203
+*color8:  #444444
+
+! red
+*color1:  #c54200
+*color9:  #db703a
+
+! green
+*color2:  #38b856
+!#667b24
+*color10: #17d193
+!#70880b
+
+! yellow
+*color3:  #e3a100
+*color11: #e5be21
+
+! blue
+*color4:  #3856b8
+*color12: #1793d1
+!#1181ff
+
+! magenta
+*color5:  #961fb5
+*color13: #b550d0
+
+! cyan
+*color6:  #2e8fac
+*color14: #48a0b8
+
+! grey/white
+*color7:  #c5e0e1
+*color15: #d9fdee

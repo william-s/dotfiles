@@ -77,9 +77,9 @@ alias cleanvim='find ./ -type f -iname ".*.*sw*" -print0 | xargs --interactive -
 # alias yaoup='yaourt -Syu'
 # alias yaoupa='yaourt -Syua' 
 
-alias ls='ls -F --color=always'
+alias ls='ls -F --color=always --group-directories-first'
 alias lr='ls -R'                    # recursive ls
-alias l='ls -hl --group-directories-first'
+alias l='ls -hl '
 alias la='ls -A'
 alias ll='l -A'
 alias lx='ll -BX'                   # sort by extension
@@ -149,3 +149,6 @@ sdate() { date +%m.%d.%Y }
 wikidig() { dig +short txt ${1}.wp.dg.cx }
 #prepend precise timestamps to tail
 tailTS() { tail -f ${1} | while read; do echo -e "$(date +%T.%N) $REPLY"; done }
+
+#better than nocorrect sudo, because corrects file names, correct_ignore didnt seem to work
+alias sdvim='sudo /usr/bin/vim' 

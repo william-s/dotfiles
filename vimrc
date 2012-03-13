@@ -56,6 +56,8 @@ set number
 set relativenumber
 let mapleader = ","
 
+let g:haddock_browser = "chromium"
+
 " cd to the directory containing the file in the buffer
 nmap <silent> ,cd :lcd %:h<CR>
 nmap <silent> ,md :!mkdir -p %:p:h<CR>
@@ -122,7 +124,7 @@ let NERDTreeIgnore=[]
 "-----------------------------------------------------------------------------
 
 set background=dark
-colorscheme solarized
+"colorscheme mango
 
 if has("gui_running")
   exe "set guifont=" . g:main_font
