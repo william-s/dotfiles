@@ -121,7 +121,7 @@ printMpdInfo() {
 
 printDateInfo() {
     #echo -n "^ca(1,$CAL_CMD)^fg()$(date '+%Y^fg($COLOR_SEP).^fg()%m^fg($COLOR_SEP).^fg()%d/^fg($DZEN_FG2)%a ^fg($COLOR_SEP)^$SEP^fg()%H^fg($COLOR_SEP):^fg()%M^fg($COLOR_SEP):^fg()%S')^ca() "
-    echo -n "^ca(1,$CAL_CMD)^fg()$DateTime^ca()" 
+    echo -n "^ca(1,$CAL_CMD)^fg()$DateTime ^ca()" 
     return
 }
 
@@ -131,12 +131,13 @@ printSpace() {
 }
 printLeft() {
     while true; do
-        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp
+        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp
         printVolInfo
         printSpace
         printDropBoxInfo
         printSpace
-        printMpdInfo
+        echo -n "$CurTemp "
+        #printMpdInfo
         echo -n " ^fg()>^fg($BAR_FG)>^fg()>"
         echo
     done
@@ -144,7 +145,7 @@ printLeft() {
 }
 printRight() {
     while true; do
-        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp
+        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp
         printCPUInfo
         printSpace
         printMemInfo
