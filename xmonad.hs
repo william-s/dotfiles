@@ -35,7 +35,7 @@ myDzenPP h = defaultPP
             , ppVisible  = dzenColor colorYellowAlt colorBlack --visible tag
             , ppHidden   = dzenColor colorCyanAlt   colorBlack --tag color
             , ppOutput   = hPutStrLn h 
-            , ppTitle    = dzenColor colorYellow colorBlack . pad  . shorten 50
+            , ppTitle    = dzenColor colorYellow colorBlack . pad  . shorten 55
             }
 
 myXmobarPP h = defaultPP
@@ -43,12 +43,12 @@ myXmobarPP h = defaultPP
             , ppVisible  = xmobarColor colorYellowAlt "" --visible tag
             , ppHidden   = xmobarColor colorCyanAlt "" --tag color
             , ppOutput   = hPutStrLn h
-            , ppTitle    = xmobarColor colorYellow "" . shorten 50
+            , ppTitle    = xmobarColor colorYellow "" . shorten 80
             }
 
 
 myWorkspaceBar, myBottomStatusBar, myTopStatusBar :: String
-myWorkspaceBar    = "dzen2 -x '1680' -y '0' -h '18' -w '1200' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
+myWorkspaceBar    = "dzen2 -x '1680' -y '0' -h '16' -w '800' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
 myBottomStatusBar = ""
 myTopStatusBar    = "/home/william/.xmonad/topbar.sh"
 

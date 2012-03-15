@@ -19,7 +19,7 @@ export ZSH_THEME="reprisal"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git archlinux)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -71,12 +71,18 @@ alias open='xdg-open'
 
 alias cleanvim='find ./ -type f -iname ".*.*sw*" -print0 | xargs --interactive -0 rm' # seems safer than find -delete
 
-# yaourt helpers -replaced by archlinux plugin for now
-# alias yaoi='yaourt -Si'
-# alias yaoins='yaourt -S'
-# alias yaos='yaourt -Ss'
-# alias yaoup='yaourt -Syu'
-# alias yaoupa='yaourt -Syua' 
+# yaourt helpers
+alias yari='yaourt -Si'
+alias yain='yaourt -S'
+alias yains='yaourt -U' #install package from file
+alias yars='yaourt -Ss'
+alias yaup='yaourt -Syu'
+alias yaupa='yaourt -Syua'
+alias yaqi='yaourt -Qi'
+alias yaqs='yaourt -Qs'
+alias yasy='yaourt -Sy'
+alias yasyy='yaourt -Syy'
+alias yaconf='yaourt -C'
 
 alias ls='ls -F --color=always --group-directories-first'
 alias lr='ls -R'                    # recursive ls
