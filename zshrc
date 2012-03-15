@@ -54,6 +54,7 @@ alias -g G=' | grep'
 alias -g T=' | tail -n'
 alias -g H=' | head -n'
 alias -g DN='/dev/null'
+alias -g sprunge='| curl -F "sprunge=<-" http://sprunge.us'
 
 #suffixes
 #TODO expand 
