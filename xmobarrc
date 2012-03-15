@@ -11,5 +11,5 @@ Config { font = "xft:Consolas:pixelsize=16:antialias=true"
                 ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %KORD% | %multicpu% | %memory% * %swap% | <fc=#48a0b9>%date%</fc> "
+       , template = "%StdinReader% }{ %KORD% | %multicpu% |  %memory% %swap% | <fc=#48a0b9>%date%</fc> "
        }
