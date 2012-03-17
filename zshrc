@@ -44,7 +44,7 @@ alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
 #addendum to zsh git plugin
-alias gd='git diff'
+alias gd='git diff -w'
 compdef _git gd=git-diff
 
 #globals
@@ -60,7 +60,6 @@ alias -g sprunge='| curl -F "sprunge=<-" http://sprunge.us'
 #TODO expand 
 alias -s txt=vim
 for i in rar zip 7z lzma; alias -s $i='7z x'
-alias -s txt=vim
 
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -85,13 +84,13 @@ alias yasyy='yaourt -Syy'
 alias yaconf='yaourt -C'
 
 alias ls='ls -F --color=always --group-directories-first'
-alias lr='ls -R'                    # recursive ls
+alias lr='ls -R'            # recursive ls
 alias l='ls -hl '
 alias la='ls -A'
 alias ll='l -A'
-alias lx='ll -BX'                   # sort by extension
-alias lz='ll -rS'                   # sort by size
-alias lt='ll -rt'                   # sort by date
+alias lx='ll -BX'           # sort by extension
+alias lz='ll -rS'           # sort by size
+alias lt='ll -rt'           # sort by date
 alias lm='ll | most'
 alias lsd='ls -d .*(/) *(/)'
 

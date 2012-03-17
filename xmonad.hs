@@ -1,4 +1,5 @@
 import XMonad
+import Data.Monoid
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
@@ -12,11 +13,15 @@ import XMonad.Util.Cursor
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Layout.Spacing
+import Graphics.X11.ExtraTypes.XF86
 import System.IO
+
+
+import qualified XMonad.StackSet as W
+import qualified Data.Map        as M
 
 -- Appearence
 myFont = "Consolas:pixelsize=16:antialias=true"
-myDzenFont = "Segoe UI:pixelsize=16:style=bold:antialias=true"
 colorBlack        = "#060203" --color0
 colorBlackAlt     = "#444444" --color8
 colorWhite        = "#d9fdee" --color7
@@ -122,6 +127,7 @@ main = do
         , ((mod4Mask .|. shiftMask, xK_Down),  shiftToNext)
         , ((mod4Mask .|. shiftMask, xK_Up),    shiftToPrev)
         , ((mod4Mask,               xK_Right), nextScreen)
+        , ((mod4Mask,               xK_a),     nextScreen)
         , ((mod4Mask,               xK_Left),  prevScreen)
         , ((mod4Mask .|. shiftMask, xK_Right), shiftNextScreen)
         , ((mod4Mask .|. shiftMask, xK_Left),  shiftPrevScreen)
