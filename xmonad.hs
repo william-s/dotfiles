@@ -6,13 +6,11 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName  --for java gui apps
 import XMonad.Prompt
---TODO remove? import XMonad.Prompt.RunOrRaise
+import XMonad.Prompt.RunOrRaise
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
 import XMonad.Util.Cursor
 import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
-import XMonad.Layout.Spacing
 import Graphics.X11.ExtraTypes.XF86
 import System.IO
 
@@ -51,6 +49,36 @@ myXmobarPP h = defaultPP
             , ppTitle    = xmobarColor colorYellow "" . shorten 80
             }
 
+keysToAdd x = 
+        [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
+        , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
+        , ((0, xK_Print), spawn "scrot")
+        , ((mod1Mask, xK_F2), shellPrompt myXPConfig)
+        , ((mod4Mask, xK_F2), xmonadPrompt myXPConfig)
+        , ((mod4Mask .|. shiftMask, xK_x), runOrRaisePrompt defaultXPConfig)
+        , ((mod4Mask .|. shiftMask, xK_h), spawn "feh --scale ~/Dropbox/reference-cards/Xmbindings.png")
+        , ((0, xF86XK_AudioRaiseVolume),     spawn "/usr/bin/vol_up") --raise sound
+        , ((0, xF86XK_AudioLowerVolume),     spawn "/usr/bin/vol_down") --lower sound
+        , ((0, xF86XK_AudioMute),     spawn "/usr/bin/mute_toggle") --mute sound
+        -- launch dmenu
+        , ((mod4Mask,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
+        -- basic CycleWS setup
+        , ((mod4Mask,               xK_Down),  nextWS)
+        , ((mod4Mask,               xK_Up),    prevWS)
+        , ((mod4Mask .|. shiftMask, xK_Down),  shiftToNext)
+        , ((mod4Mask .|. shiftMask, xK_Up),    shiftToPrev)
+        , ((mod4Mask,               xK_Right), nextScreen)
+        , ((mod4Mask,               xK_a),     nextScreen)
+        , ((mod4Mask,               xK_Left),  prevScreen)
+        , ((mod4Mask .|. shiftMask, xK_Right), shiftNextScreen)
+        , ((mod4Mask .|. shiftMask, xK_Left),  shiftPrevScreen)
+        , ((mod4Mask,               xK_z),     toggleWS)
+        ]
+
+keysToDel x = []
+
+newKeys x = M.union (keys defaultConfig x) (M.fromList (keysToAdd x))
+myKeys x = foldr M.delete (newKeys x) (keysToDel x)
 
 myWorkspaceBar, myBottomStatusBar, myTopStatusBar :: String
 myWorkspaceBar    = "dzen2 -x '1680' -y '0' -h '16' -w '800' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
@@ -102,35 +130,11 @@ main = do
         , borderWidth = 1
         , normalBorderColor = colorBlack
         , focusedBorderColor = colorWhite
+        , keys = myKeys
         , manageHook = manageDocks <+> myManageHook 
                         <+> manageHook defaultConfig
         , layoutHook = avoidStruts $  layoutHook defaultConfig
         , logHook = myLogHook >> (dynamicLogWithPP $ myDzenPP workspaceBar)
         , startupHook = myStartupHook
         , workspaces = myWorkspaces
-        } `additionalKeys`
-        [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
-        , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
-        , ((0, xK_Print), spawn "scrot")
-        , ((mod1Mask, xK_F2), shellPrompt myXPConfig)
-        , ((mod4Mask, xK_F2), xmonadPrompt myXPConfig)
-        -- TODO remove?, ((mod4Mask .|. shiftMask, xK_x), runOrRaisePrompt defaultXPConfig)
-        , ((mod4Mask .|. shiftMask, xK_h), spawn "feh --scale ~/Dropbox/reference-cards/Xmbindings.png")
-        , ((0, 0x1008ff13),     spawn "/usr/bin/vol_up") --raise sound
-        , ((0, 0x1008ff11),     spawn "/usr/bin/vol_down") --lower sound
-        , ((0, 0x1008ff12),     spawn "/usr/bin/mute_toggle") --mute sound
-        -- launch dmenu
-        , ((mod4Mask,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
-        -- basic CycleWS setup
-        , ((mod4Mask,               xK_Down),  nextWS)
-        , ((mod4Mask,               xK_Up),    prevWS)
-        , ((mod4Mask .|. shiftMask, xK_Down),  shiftToNext)
-        , ((mod4Mask .|. shiftMask, xK_Up),    shiftToPrev)
-        , ((mod4Mask,               xK_Right), nextScreen)
-        , ((mod4Mask,               xK_a),     nextScreen)
-        , ((mod4Mask,               xK_Left),  prevScreen)
-        , ((mod4Mask .|. shiftMask, xK_Right), shiftNextScreen)
-        , ((mod4Mask .|. shiftMask, xK_Left),  shiftPrevScreen)
-        , ((mod4Mask,               xK_z),     toggleWS)
-        ]
-
+        }

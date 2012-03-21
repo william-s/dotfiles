@@ -3,9 +3,13 @@
 
 URxvt*font: xft:Consolas:style=Regular:pixelsize=14:antialias=true:hinting=true
 URxvt.iconFile:    /usr/share/icons/Clarity/scalable/apps/terminal.svg
+URxvt.visualBell: true
+
 
 URxvt.perl-ext: default,matcher,url-picker
 URxvt.keysym.C-0xff0d:    perl:url-picker
+URxvt.keysym.Home:  \033[1~
+URxvt.keysym.End:  \033[4~
 
 URxvt.urlLauncher:   chromium
 !!URxvt.scrollstyle: plain

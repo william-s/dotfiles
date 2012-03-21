@@ -68,6 +68,9 @@ alias diff='colordiff'
 alias tmux='tmux -u -2'
 alias open='xdg-open'
 
+alias v='vim --servername base --remote-silent'
+compdef v='vim'
+
 alias cleanvim='find ./ -type f -iname ".*.*sw*" -print0 | xargs --interactive -0 rm' # seems safer than find -delete
 
 # yaourt helpers
@@ -100,12 +103,6 @@ alias du='du -c -h'
 alias dud='du -s *(/)'
 alias mkdir='mkdir -pv'
 
-# alias screen='byobu'
-alias tmux='tmux -u -2'
-alias v=vim --remote-silent
-alias grep='grep --color=auto'
-alias diff='colordiff' 
-
 alias ping='ping -c 5'
 (bin-exist mtr) && alias traceroute='mtr' #remember mtr!
 alias openports='netstat --all --numeric --programs --inet'
@@ -117,9 +114,14 @@ alias halt='sudo shutdown -h now'
 alias f='find | grep'
 alias c='clear'
 
-export SSH_PORT=22335
-alias sshmini='ssh -p $SSH_PORT william@192.168.1.135'
-alias sshtunnel="ssh -ND $SSH_PORT -v"
+function sshtunnel {
+    ssh -ND $2 -v $1
+}
+compdef sshtunnel='ssh' 
+
+function 7z2 {
+    7z e -o$2 $1
+}
 
 function secure_chromium {
     export SOCKS_SERVER=localhost:$SSH_PORT
@@ -136,7 +138,7 @@ alias rsync='rsync --progress'
 
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
-bindkey "^[s" insert-sudo  #makes alt-s insert-sudo!
+bindkey "^[s" insert-sudo  #makes alt-s insert-sudo
 
 gg() { git grep "$*"; }
 
