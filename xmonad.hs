@@ -19,7 +19,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 -- Appearence
-myFont = "Consolas:pixelsize=16:antialias=true"
+myFont = "Zekton:pixelsize=16:antialias=true"
 colorBlack        = "#060203" --color0
 colorBlackAlt     = "#444444" --color8
 colorWhite        = "#d9fdee" --color7
@@ -38,7 +38,7 @@ myDzenPP h = defaultPP
             , ppVisible  = dzenColor colorYellowAlt colorBlack --visible tag
             , ppHidden   = dzenColor colorCyanAlt   colorBlack --tag color
             , ppOutput   = hPutStrLn h 
-            , ppTitle    = dzenColor colorYellow colorBlack . pad  . shorten 55
+            , ppTitle    = dzenColor colorYellow colorBlack . pad  . shorten 65
             }
 
 myXmobarPP h = defaultPP
@@ -109,7 +109,7 @@ myXPConfig = defaultXPConfig
     , fgHLight            = colorWhite
     , borderColor         = colorWhiteAlt
     , promptBorderWidth   = 1
-    , height              = 16
+    , height              = 18
     , position            = Top
     , historySize         = 100
     , historyFilter       = deleteConsecutive

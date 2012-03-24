@@ -7,11 +7,11 @@
 #Layout
 BAR_H=10
 BIGBAR_W=65
-WIDTH_L=400
-WIDTH_R=720 #WIDTH_L + WIDTH_R = 1120
-HEIGHT=16
-X_POS_L=2480
-X_POS_R=2880
+WIDTH_L=650
+WIDTH_R=570 #WIDTH_L + WIDTH_R = 1220
+HEIGHT=18
+X_POS_L=2380
+X_POS_R=3030
 Y_POS=0
 
 #Colors and font
@@ -23,7 +23,7 @@ DZEN_FG2="#48a0b8"  #is default from xmonad.hs
 DZEN_BG="#060203"
 COLOR_SEP="#3856b8"
 SEP=" "
-FONT="Consolas:pixelsize=16:antialias=true"
+FONT="Zekton:pixelsize=16:antialias=true"
 
 #Conky
 CONKYFILE="${HOME}/.xmonad/conkyrc"
@@ -96,11 +96,21 @@ printMemInfo() {
 }
 
 printDropBoxInfo() {
-    DropboxON=$(ps -A | grep -c dropbox)
+    DropboxON=$(pgrep dropbox)
     if [[ $DropboxON == "0" ]]; then
-        echo -n "^fg()^ca(1,$DROP_START_CMD)DROPBOX^ca() ^fg()Off"
+        echo -n "^fg()^ca(1,$DROP_START_CMD)DBOX^ca() ^fg()Off"
     else
-        echo -n "^fg()^ca(1,$DROP_STOP_CMD)DROPBOX^ca() ^fg($CRIT)On"
+        echo -n "^fg()^ca(1,$DROP_STOP_CMD)DBOX^ca() ^fg($CRIT)On"
+    fi
+    return
+}
+
+printMocInfo() {
+    MOCPON=$(pgrep mocp)
+        if [[ $MOCPON == "0" ]]; then
+        echo -n "^fg()^ca(1,mpd)MOC^ca() ^fg()Off"
+    else
+        echo -n "$MocInfo"
     fi
     return
 }
@@ -131,21 +141,21 @@ printSpace() {
 }
 printLeft() {
     while true; do
-        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp
+        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp MocInfo
         printVolInfo
         printSpace
         printDropBoxInfo
         printSpace
         echo -n "$CurTemp "
-        #printMpdInfo
-        echo -n " ^fg()>^fg($BAR_FG)>^fg()>"
+        echo -n "^fg()>^fg($BAR_FG)>^fg()> "
+        printMocInfo
         echo
     done
     return
 }
 printRight() {
     while true; do
-        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp
+        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp MocInfo
         printCPUInfo
         printSpace
         printMemInfo

@@ -118,13 +118,6 @@ alias c='clear'
 function sshtunnel {
     ssh -ND $2 -v $1
 }
-
-function mutt {
-      pwds=`gpg --decrypt ~/passwords.gpg`
-      eval "$pwds"
-      exec mutt "$@"
-}
-
 compdef sshtunnel='ssh' 
 
 function 7z2 {
