@@ -71,6 +71,7 @@ alias open='xdg-open'
 alias v='vim --servername base --remote-silent'
 compdef v='vim'
 
+alias em='emacs -nw'
 alias cleanvim='find ./ -type f -iname ".*.*sw*" -print0 | xargs --interactive -0 rm' # seems safer than find -delete
 
 # yaourt helpers
@@ -117,6 +118,13 @@ alias c='clear'
 function sshtunnel {
     ssh -ND $2 -v $1
 }
+
+function mutt {
+      pwds=`gpg --decrypt ~/passwords.gpg`
+      eval "$pwds"
+      exec mutt "$@"
+}
+
 compdef sshtunnel='ssh' 
 
 function 7z2 {
