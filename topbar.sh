@@ -7,11 +7,11 @@
 #Layout
 BAR_H=10
 BIGBAR_W=65
-WIDTH_L=650
-WIDTH_R=570 #WIDTH_L + WIDTH_R = 1220
+WIDTH_L=1050
+WIDTH_R=920 #WIDTH_L + WIDTH_R = 1920
 HEIGHT=18
-X_POS_L=2380
-X_POS_R=3030
+X_POS_L=0
+X_POS_R=2050
 Y_POS=0
 
 #Colors and font
@@ -23,7 +23,7 @@ DZEN_FG2="#48a0b8"  #is default from xmonad.hs
 DZEN_BG="#060203"
 COLOR_SEP="#3856b8"
 SEP=" "
-FONT="Zekton:pixelsize=16:antialias=true"
+FONT="inconsolata:pixelsize=18:bold:antialias=true"
 
 #Conky
 CONKYFILE="${HOME}/.xmonad/conkyrc"

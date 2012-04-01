@@ -53,6 +53,7 @@ alias -g M=' | most'
 alias -g G=' | grep'
 alias -g T=' | tail -n'
 alias -g H=' | head -n'
+alias -g C=' | xclip -selection c'
 alias -g DN='/dev/null'
 alias -g sprunge='| curl -F "sprunge=<-" http://sprunge.us'
 
@@ -74,18 +75,32 @@ compdef v='vim'
 alias em='emacs -nw'
 alias cleanvim='find ./ -type f -iname ".*.*sw*" -print0 | xargs --interactive -0 rm' # seems safer than find -delete
 
-# yaourt helpers
-alias yari='yaourt -Si'
-alias yain='yaourt -S'
-alias yains='yaourt -U' #install package from file
-alias yars='yaourt -Ss'
-alias yaup='yaourt -Syu'
-alias yaupa='yaourt -Syua'
-alias yaqi='yaourt -Qi'
-alias yaqs='yaourt -Qs'
-alias yasy='yaourt -Sy'
-alias yasyy='yaourt -Syy'
-alias yaconf='yaourt -C'
+# pacaur helpers
+alias pacs='pacaur -Ss'
+alias paci='pacaur -Si'
+alias pacq='pacaur -Q'
+alias pacqi='pacaur -Qi'
+alias pacd='pacaur -d'
+alias pacy='pacaur -Sy'
+alias pacyy='pacaur -Syy'
+alias pacc='pacaur -Qu'
+alias pacu='pacaur -Syu'
+
+
+
+## yaourt helpers
+# TODO delete these?
+#alias yari='yaourt -Si'
+#alias yain='yaourt -S'
+#alias yains='yaourt -U' #install package from file
+#alias yars='yaourt -Ss'
+#alias yaup='yaourt -Syu'
+#alias yaupa='yaourt -Syua'
+#alias yaqi='yaourt -Qi'
+#alias yaqs='yaourt -Qs'
+#alias yasy='yaourt -Sy'
+#alias yasyy='yaourt -Syy'
+#alias yaconf='yaourt -C'
 
 alias ls='ls -F --color=always --group-directories-first'
 alias lr='ls -R'            # recursive ls

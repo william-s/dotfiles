@@ -19,7 +19,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 -- Appearence
-myFont = "Zekton:pixelsize=16:antialias=true"
+myFont = "inconsolata:pixelsize=16:bold:antialias=true"
 colorBlack        = "#060203" --color0
 colorBlackAlt     = "#444444" --color8
 colorWhite        = "#d9fdee" --color7
@@ -34,11 +34,11 @@ colorCyan         = "#2e8fac" --color6
 colorCyanAlt      = "#48a0b8" --color14
 
 myDzenPP h = defaultPP
-            { ppCurrent  = dzenColor colorRedAlt    colorBlack --active tag
-            , ppVisible  = dzenColor colorYellowAlt colorBlack --visible tag
-            , ppHidden   = dzenColor colorCyanAlt   colorBlack --tag color
+            { ppCurrent  = dzenColor colorRedAlt colorBlack . wrap "[" "]" --active tag
+            , ppVisible  = dzenColor colorYellowAlt colorBlack . wrap "[" "]"  --visible tag
+            , ppHidden   = dzenColor colorCyanAlt   colorBlack  . wrap "" ""  --tag color
             , ppOutput   = hPutStrLn h 
-            , ppTitle    = dzenColor colorYellow colorBlack . pad  . shorten 65
+            , ppTitle    = dzenColor colorYellow colorBlack . pad  . shorten 80
             }
 
 myXmobarPP h = defaultPP
@@ -81,7 +81,7 @@ newKeys x = M.union (keys defaultConfig x) (M.fromList (keysToAdd x))
 myKeys x = foldr M.delete (newKeys x) (keysToDel x)
 
 myWorkspaceBar, myBottomStatusBar, myTopStatusBar :: String
-myWorkspaceBar    = "dzen2 -x '1680' -y '0' -h '16' -w '800' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
+myWorkspaceBar    = "dzen2 -x '1050' -y '0' -h '18' -w '1000' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
 myBottomStatusBar = ""
 myTopStatusBar    = "/home/william/.xmonad/topbar.sh"
 
