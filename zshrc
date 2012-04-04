@@ -77,9 +77,9 @@ alias cleanvim='find ./ -type f -iname ".*.*sw*" -print0 | xargs --interactive -
 
 # pacaur helpers
 alias pacs='pacaur -Ss'
-alias paci='pacaur -Si'
+alias paci='pacaur -Sii'
 alias pacq='pacaur -Q'
-alias pacqi='pacaur -Qi'
+alias pacqi='pacaur -Qii'
 alias pacd='pacaur -d'
 alias pacy='pacaur -Sy'
 alias pacyy='pacaur -Syy'
