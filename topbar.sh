@@ -105,6 +105,16 @@ printDropBoxInfo() {
     return
 }
 
+printPacaurInfo() {
+    echo -n "^fg()Pacaur ^fg()"
+    if [[ $PackCount == "0" ]]; then
+        echo -n "^fg()0^fg()"
+    else
+        echo -n "^fg($CRIT)$PackCount"
+    fi
+    return
+}
+
 printMocInfo() {
     MOCPON=$(pgrep mocp)
         if [[ $MOCPON == "0" ]]; then
@@ -141,10 +151,12 @@ printSpace() {
 }
 printLeft() {
     while true; do
-        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp MocInfo
+        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp MocInfo PackCount
         printVolInfo
         printSpace
         printDropBoxInfo
+        printSpace
+        printPacaurInfo
         printSpace
         echo -n "$CurTemp "
         echo -n "^fg()>^fg($BAR_FG)>^fg()> "
@@ -155,7 +167,7 @@ printLeft() {
 }
 printRight() {
     while true; do
-        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp MocInfo
+        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp MocInfo PackCount
         printCPUInfo
         printSpace
         printMemInfo
