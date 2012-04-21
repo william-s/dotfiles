@@ -1,10 +1,11 @@
-autoload omz
-zstyle :omz:style theme reprisal
-plugins=(git github)
-omz init
+zstyle ':omz:*' case-sensitive 'no'
+zstyle ':omz:*' color 'yes'
+zstyle ':omz:load' omodule 'environment' 'bindkey' 'completion' 'history' 'directory' 'alias' 'prompt' 'git' 'keychain' 'sprunge' 'tmux' 'pacman'
+zstyle ':omz:module:prompt' theme 'reprisal'
 
+autoload omz && omz
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/core_perl:/home/reprisal/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/core_perl:/home/william/bin
 
 bin-exist() {[[ -x `which  $1 2>/dev/null` ]]}
 
@@ -36,7 +37,7 @@ alias -g T=' | tail -n'
 alias -g H=' | head -n'
 alias -g C=' | xclip -selection c'
 alias -g DN='/dev/null'
-alias -g sprunge='| curl -F "sprunge=<-" http://sprunge.us'
+#alias -g sprunge='| curl -F "sprunge=<-" http://sprunge.us'
 
 #suffixes
 #TODO expand 

@@ -7,13 +7,13 @@ urxvtd -q -f -o
 pulseaudio --start &
 xcompmgr -c -t-5 -l-5 -r4.2 -o.55 &
 
-if [ -f $HOME/.Xmodmap ]; then
-	/usr/bin/xmodmap $HOME/.Xmodmap
-fi
+/usr/bin/xmodmap $HOME/.Xmodmap
 
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+xrdb -merge $HOME/.Xresources
+
+xscreensaver &
 
 /usr/bin/dropbox start &
 /usr/bin/feh --bg-scale --no-xinerama /home/william/.wallpaper
 
-/usr/bin/xmonad
+exec ck-launch-session xmonad

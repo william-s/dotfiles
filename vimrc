@@ -58,6 +58,11 @@ let mapleader = ","
 
 let g:haddock_browser = "chromium"
 
+" enable sudo saving
+ca w!! w !sudo tee "%"
+" cmap w!! %!sudo tee "%"
+
+
 " cd to the directory containing the file in the buffer
 nmap <silent> ,cd :lcd %:h<CR>
 nmap <silent> ,md :!mkdir -p %:p:h<CR>
