@@ -62,6 +62,7 @@ set mailcap_path 	= ~/.mutt/mailcap
 # Archive Messages (A) and some other nifty commands
 bind editor <space> noop #fix for spaces in names of folders
 macro index,pager A "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+macro attach S <save-entry><kill-line>/home/william/
 macro index Z ";WN" "Mark as read"
 macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"

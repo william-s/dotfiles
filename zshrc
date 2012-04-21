@@ -1,30 +1,11 @@
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
+zstyle ':omz:*' case-sensitive 'no'
+zstyle ':omz:*' color 'yes'
+zstyle ':omz:load' omodule 'environment' 'bindkey' 'completion' 'history' 'directory' 'alias' 'prompt' 'git' 'keychain' 'sprunge' 'tmux' 'pacman'
+zstyle ':omz:module:prompt' theme 'archey' 'y' 'blu' 'n'
 
-# Set to the name theme to load.
-# Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="reprisal"
-
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# export DISABLE_AUTO_TITLE="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
+autoload omz && omz
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/core_perl:/home/reprisal/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/core_perl:/home/william/bin
 
 bin-exist() {[[ -x `which  $1 2>/dev/null` ]]}
 
@@ -43,9 +24,10 @@ alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
 
-#addendum to zsh git plugin
+#addendum to git plugin
 alias gd='git diff -w'
 compdef _git gd=git-diff
+gg() { git grep "$*"; }
 
 #globals
 alias -g F=' | fmt -'
@@ -55,7 +37,7 @@ alias -g T=' | tail -n'
 alias -g H=' | head -n'
 alias -g C=' | xclip -selection c'
 alias -g DN='/dev/null'
-alias -g sprunge='| curl -F "sprunge=<-" http://sprunge.us'
+#alias -g sprunge='| curl -F "sprunge=<-" http://sprunge.us'
 
 #suffixes
 #TODO expand 
@@ -82,7 +64,6 @@ alias pacq='pacaur -Qs'
 alias pacqi='pacaur -Qii'
 alias pacd='pacaur -d'
 alias pacy='pacaur -Sy'
-alias pacyy='pacaur -Syy'
 alias pacc='pacaur -Qu'
 alias pacu='pacaur -Syu'
 
@@ -124,13 +105,6 @@ function 7z2 {
     7z e -o$2 $1
 }
 
-function secure_chromium {
-    export SOCKS_SERVER=localhost:$SSH_PORT
-    export SOCKS_VERSION=5
-    chromium &
-    exit
-}
-
 export DIRSTACKSIZE=10
 alias dh='dirs -v'
 setopt autopushd pushdminus pushdtohome
@@ -141,8 +115,6 @@ alias rsync-ntfs='rsync -av --modify-window=1'
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo  #makes alt-s insert-sudo
-
-gg() { git grep "$*"; }
 
 setopt extended_glob
 
