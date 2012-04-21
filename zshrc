@@ -1,7 +1,7 @@
 zstyle ':omz:*' case-sensitive 'no'
 zstyle ':omz:*' color 'yes'
 zstyle ':omz:load' omodule 'environment' 'bindkey' 'completion' 'history' 'directory' 'alias' 'prompt' 'git' 'keychain' 'sprunge' 'tmux' 'pacman'
-zstyle ':omz:module:prompt' theme 'reprisal'
+zstyle ':omz:module:prompt' theme 'archey' 'y' 'blu' 'n'
 
 autoload omz && omz
 # Customize to your needs...
