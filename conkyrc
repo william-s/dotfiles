@@ -17,8 +17,8 @@ ${execi 120 sensors | sed -n 's/CPU Temp[^0-9]*\([0-9]\+\).*/\1/p'}|\
 ${execi 120 sensors | sed -n 's/MB Temp[^0-9]*\([0-9]\+\).*/\1/p'}|\
 ${execi 120 sensors | sed -n 's/temp1.*+\([0-9]\+\).*/\1/p'}|\
 ${execi 1800 conkyForecastWU -i }|\
-${execi 10 mocp --format "%artist - %song"}|\
 ${execi 300 pacaur -Qu | wc -l}|\
-#^fg()${if_match "${mpd_status}" != "Stopped"}^fg(\#9d9d9d)${mpd_status} ^fg(\#444444)\| ^fg(\#3475aa)${mpd_artist} ^fg(\#444444)- ^fg(\#3475aa)${mpd_title} ^fg(\#444444)\| ^fg(\#9d9d9d)${mpd_elapsed}^fg(\#444444)/^fg(\#9d9d9d)${mpd_length}${else}^fg(\#9d9d9d)Stopped${endif}|\
+^fg()${if_match "${mpd_status}" != "Stopped"}^fg(\#9d9d9d)${mpd_status} ^fg(\#3475aa)${mpd_artist} ^fg(\#444444)- ^fg(\#3475aa)${mpd_title} ^fg(\#9d9d9d)${mpd_elapsed}^fg(\#444444)/^fg(\#9d9d9d)${mpd_length}${else}^fg(\#9d9d9d)Stopped${endif}|\  #fix this garbage
 #${mpd_random}|\
 #${mpd_repeat}
+#${execi 10 mocp --format "%artist - %song"}|\

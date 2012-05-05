@@ -1,6 +1,6 @@
 zstyle ':omz:*' case-sensitive 'no'
 zstyle ':omz:*' color 'yes'
-zstyle ':omz:load' omodule 'environment' 'bindkey' 'completion' 'history' 'directory' 'alias' 'prompt' 'git' 'keychain' 'sprunge' 'tmux' 'pacman'
+zstyle ':omz:load' omodule 'environment' 'bindkey' 'completion' 'history' 'directory' 'alias' 'prompt' 'git' 'sprunge' 'tmux' 'pacman' 'pacaur'
 zstyle ':omz:module:prompt' theme 'archey' 'y' 'blu' 'n'
 
 autoload omz && omz
@@ -16,10 +16,6 @@ setopt SHARE_HISTORY
 
 # safety features
 setopt RM_STAR_WAIT
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -I'                    # 'rm -i' prompts for every file
-alias ln='ln -i'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
@@ -39,6 +35,22 @@ alias -g C=' | xclip -selection c'
 alias -g DN='/dev/null'
 #alias -g sprunge='| curl -F "sprunge=<-" http://sprunge.us'
 
+#systemd
+alias sdc='sudo systemctl'
+compdef _sds='systemctl'
+alias sds='sudo systemctl status'
+compdef _sds='systemctl'
+alias sdr='sudo systemctl restart'
+compdef _sdr='systemctl'
+alias sdls='sudo systemctl units'
+compdef _sdls='systemctl'
+alias sdj='sudo systemd-journalctl'
+alias sdgrep='sudo systemctl list-unit-files | grep'
+compdef _sdgrep='grep'
+
+alias oss-fp='sudo ln -sf /dev/oss/oss_hdaudio0/pcm0 /dev/dsp'
+alias oss-bp='sudo ln -sf /dev/oss/oss_hdaudio0/pcm1 /dev/dsp'
+
 #suffixes
 #TODO expand 
 alias -s txt=vim
@@ -53,35 +65,18 @@ alias open='xdg-open'
 
 alias v='vim --servername base --remote-silent'
 compdef v='vim'
-
-alias em='emacs -nw'
 alias cleanvim='find ./ -type f -iname ".*.*sw*" -print0 | xargs --interactive -0 rm' # seems safer than find -delete
+alias em='emacs -nw'
 
-# pacaur helpers
-alias pacs='pacaur -Ss'
-alias paci='pacaur -Sii'
-alias pacq='pacaur -Qs'
-alias pacqi='pacaur -Qii'
-alias pacd='pacaur -d'
-alias pacy='pacaur -Sy'
-alias pacc='pacaur -Qu'
-alias pacu='pacaur -Syu'
-
-
-alias ls='ls -F --color=always --group-directories-first'
-alias lr='ls -R'            # recursive ls
 alias l='ls -hl '
 alias la='ls -A'
 alias ll='l -A'
 alias lx='ll -BX'           # sort by extension
 alias lz='ll -rS'           # sort by size
 alias lt='ll -rt'           # sort by date
-alias lm='ll | most'
 alias lsd='ls -d .*(/) *(/)'
 
 alias ..='cd ..'
-alias df='df -Th'
-alias du='du -c -h'
 alias dud='du -s *(/)'
 alias mkdir='mkdir -pv'
 
@@ -105,10 +100,6 @@ function 7z2 {
     7z e -o$2 $1
 }
 
-export DIRSTACKSIZE=10
-alias dh='dirs -v'
-setopt autopushd pushdminus pushdtohome
-
 alias rsync='rsync --progress'
 alias rsync-ntfs='rsync -av --modify-window=1'
 
@@ -131,6 +122,7 @@ sdate() { date +%m.%d.%Y }
 wikidig() { dig +short txt ${1}.wp.dg.cx }
 #prepend precise timestamps to tail
 tailTS() { tail -f ${1} | while read; do echo -e "$(date +%T.%N) $REPLY"; done }
-
-#better than nocorrect sudo, because corrects file names, correct_ignore didnt seem to work
-alias sdvim='sudo /usr/bin/vim' 
+#temporary text helper
+function tgr-grep() {
+    grep -i $1 /mnt/BK1/Calibre\ Library/Richard\ Florida/The\ Great\ Reset\ \(11\)/text
+}

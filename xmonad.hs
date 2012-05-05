@@ -50,9 +50,9 @@ keysToAdd x =
         , ((mod4Mask, xK_F2), xmonadPrompt myXPconfig)
         , ((mod4Mask .|. shiftMask, xK_x), runOrRaisePrompt defaultXPConfig)
         , ((mod4Mask .|. shiftMask, xK_h), safeSpawn "feh " ["--scale ~/Dropbox/reference-cards/Xmbindings.png"])
-        , ((0, xF86XK_AudioRaiseVolume),     safeSpawnProg "/usr/bin/vol_up") --raise sound
-        , ((0, xF86XK_AudioLowerVolume),     safeSpawnProg "/usr/bin/vol_down") --lower sound
-        , ((0, xF86XK_AudioMute),     safeSpawnProg "/usr/bin/mute_toggle") --mute sound
+        , ((0, xF86XK_AudioRaiseVolume),     safeSpawn "/usr/bin/ossvol" ["-i 1"]) --raise sound
+        , ((0, xF86XK_AudioLowerVolume),     safeSpawn "/usr/bin/ossvol" ["-d 1"]) --lower sound
+        , ((0, xF86XK_AudioMute),     safeSpawn "/usr/bin/ossvol" ["-t"]) --mute sound
         -- launch dmenu
         , ((mod4Mask,               xK_p     ), safeSpawnProg "dmenu_run")
         -- basic CycleWS setup
@@ -66,6 +66,7 @@ keysToAdd x =
         , ((mod4Mask .|. shiftMask, xK_Right), shiftNextScreen)
         , ((mod4Mask .|. shiftMask, xK_Left),  shiftPrevScreen)
         , ((mod4Mask,               xK_z),     toggleWS)
+        , ((mod4Mask,               xK_q), safeSpawnProg "xmonad --recompile; xmonad --restart")
         ]
 
 keysToDel x = []
