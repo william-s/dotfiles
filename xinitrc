@@ -3,12 +3,13 @@
 
 /home/william/.screenlayout/dual-head.sh
 
+xrdb -merge $HOME/.Xresources
+
 urxvtd -q -f -o
-xcompmgr -c -t-5 -l-5 -r4.2 -o.55 &
+#compton -cCGb -t-5 -l-5 -r4.2 -o.45 
+xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 
 /usr/bin/xmodmap $HOME/.Xmodmap
-
-xrdb -merge $HOME/.Xresources
 
 xscreensaver &
 

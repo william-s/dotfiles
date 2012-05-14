@@ -122,7 +122,3 @@ sdate() { date +%m.%d.%Y }
 wikidig() { dig +short txt ${1}.wp.dg.cx }
 #prepend precise timestamps to tail
 tailTS() { tail -f ${1} | while read; do echo -e "$(date +%T.%N) $REPLY"; done }
-#temporary text helper
-function tgr-grep() {
-    grep -i $1 /mnt/BK1/Calibre\ Library/Richard\ Florida/The\ Great\ Reset\ \(11\)/text
-}

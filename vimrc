@@ -56,7 +56,7 @@ set number
 set relativenumber
 let mapleader = ","
 
-let g:haddock_browser = "chromium"
+let g:haddock_browser = "firefox"
 
 " enable sudo saving
 ca w!! w !sudo tee "%"

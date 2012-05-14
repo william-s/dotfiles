@@ -50,9 +50,9 @@ keysToAdd x =
         , ((mod4Mask, xK_F2), xmonadPrompt myXPconfig)
         , ((mod4Mask .|. shiftMask, xK_x), runOrRaisePrompt defaultXPConfig)
         , ((mod4Mask .|. shiftMask, xK_h), safeSpawn "feh " ["--scale ~/Dropbox/reference-cards/Xmbindings.png"])
-        , ((0, xF86XK_AudioRaiseVolume),     safeSpawn "/usr/bin/ossvol" ["-i 1"]) --raise sound
-        , ((0, xF86XK_AudioLowerVolume),     safeSpawn "/usr/bin/ossvol" ["-d 1"]) --lower sound
-        , ((0, xF86XK_AudioMute),     safeSpawn "/usr/bin/ossvol" ["-t"]) --mute sound
+        , ((0, xF86XK_AudioRaiseVolume),     safeSpawnProg "/usr/bin/vol_up") 
+        , ((0, xF86XK_AudioLowerVolume),     safeSpawnProg "/usr/bin/vol_down")
+        , ((0, xF86XK_AudioMute),     safeSpawnProg "/usr/bin/mute_toggle")
         -- launch dmenu
         , ((mod4Mask,               xK_p     ), safeSpawnProg "dmenu_run")
         -- basic CycleWS setup
@@ -84,6 +84,7 @@ myManageHook = composeAll
     , className =? "MPlayer" --> (ask >>= doF . W.sink)
     , className =? "Chromium"  --> doShift "WWW" 
     , className =? "Chrome"  --> doShift "WWW" 
+    , className =? "Firefox"  --> doShift "WWW" 
     ]
 
 myWorkspaces :: [WorkspaceId]

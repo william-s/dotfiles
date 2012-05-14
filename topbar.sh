@@ -42,9 +42,9 @@ MpdRandom="Off"
 MpdRepeat="Off"
 
 #clickable areas
-VOL_MUTE_CMD="/usr/bin/ossvol -t"
-VOL_UP_CMD="/usr/bin/ossvol -i 1"
-VOL_DOWN_CMD="/usr/bin/ossvol -d 1"
+VOL_MUTE_CMD="/usr/bin/mute_toggle"
+VOL_UP_CMD="/usr/bin/vol_up"
+VOL_DOWN_CMD="/usr/bin/vol_down"
 DROP_START_CMD="dropbox start"
 DROP_STOP_CMD="dropbox stop"
 MPD_REP_CMD="ncmpcpp repeat"
@@ -54,10 +54,10 @@ MPD_NEXT_CMD="ncmpcpp next"
 MPD_PREV_CMD="ncmpcpp prev"
 CAL_CMD="sh ${HOME}/bin/dzencal.sh"
 
-
-#    Perc=$(pacmd list-sinks | sed -n 's/\svolume:\s0:\s*\([0-9]\{1,3\}%\).*/\1/p' | tail -n1)
+# Perc=$(ossmix | sed -n 's/vmix0-outvol[^0-9]*\([0-9.]\+\).*/\1/p') 
+# TODO move perc to conky
 printVolInfo() {
-    Perc=$(ossmix | sed -n 's/vmix0-outvol[^0-9]*\([0-9.]\+\).*/\1/p') 
+    Perc=$(pacmd list-sinks | sed -n 's/\svolume:\s0:\s*\([0-9]\{1,3\}%\).*/\1/p' | tail -n1)
     echo -n "^fg() ^ca(1,$VOL_MUTE_CMD)^ca(4,$VOL_UP_CMD)^ca(5,$VOL_DOWN_CMD)VOL^ca()^ca()^ca() "
         if [[ $Perc != 0.0 ]]; then
             echo -n "$(echo $Perc | gdbar -fg $CRIT -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "

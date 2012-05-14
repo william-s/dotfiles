@@ -1,0 +1,9 @@
+# pacaur helpers
+alias pacs='pacaur -Ss'
+alias paci='pacaur -Sii'
+alias pacq='pacaur -Qs'
+alias pacqi='pacaur -Qii'
+alias pacd='pacaur -d'
+alias pacy='pacaur -Sy'
+alias pacc='pacaur -Qu'
+alias pacu='pacaur -Syu'
