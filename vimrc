@@ -10,6 +10,7 @@ set backspace=indent,eol,start
 
 " Enable file type detection and do language-dependent indenting.
 filetype plugin indent on
+syntax on
 
 set shellslash
 if has("unix")
@@ -24,22 +25,21 @@ set backspace=2
 set hidden
 set cpoptions=B$
 
-autocmd FileType * set ai ts=4 sw=4 sts=4 sta et "autoindent tabstop shiftwidth softtabstop smarttab expandtab
-autocmd FileType javascript set ai ts=2 sw=2 sts=4 sta et
-
 " Set the status line the way i like it
 " adapted from https://github.com/derekwyatt/vim-config
 set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
 set laststatus=2
 set lazyredraw
 set showmode
-syntax on
 set mousehide
 set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 set timeoutlen=500
 set history=500
-set scrolloff=8
+set scrolloff=5
 set virtualedit=onemore
+
+set ignorecase
+set smartcase
 
 set wildmenu
 set wildignorecase
@@ -51,8 +51,9 @@ set incsearch
 set clipboard+=unnamed
 set autoread
 set grepprg=grep\ -nH\ $*
+set formatprg=fmt
+set spelllang=en_us
 
-set number
 set relativenumber
 let mapleader = ","
 
@@ -62,10 +63,24 @@ let g:haddock_browser = "firefox"
 ca w!! w !sudo tee "%"
 " cmap w!! %!sudo tee "%"
 
+autocmd FileType * set ai ts=4 sw=4 sts=4 sta et "autoindent tabstop shiftwidth softtabstop smarttab expandtab
+autocmd FileType javascript set ai ts=2 sw=2 sts=4 sta et
+au FileType mail set spell tw=78 formatprg="fmt -w 78"
+
+nmap <silent> <leader>sp :set spell!<CR>
+
+"autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+
+"open file in the same directory as current file without changing CWD
+map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " cd to the directory containing the file in the buffer
 nmap <silent> ,cd :lcd %:h<CR>
 nmap <silent> ,md :!mkdir -p %:p:h<CR>
+
+" Edit the vimrc file
+nmap <silent> ,ev :e $MYVIMRC<CR>
+nmap <silent> ,sv :so $MYVIMRC<CR>
 
 " Turn off that stupid highlight search
 nmap <silent> ,n :nohls<CR>
@@ -76,9 +91,6 @@ nmap <silent> ,n :nohls<CR>
 " syntax highlighting goes.
 nmap <silent> ,qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" Edit the vimrc file
-nmap <silent> ,ev :e $MYVIMRC<CR>
-nmap <silent> ,sv :so $MYVIMRC<CR>
 
 " Digraphs
 " Alpha

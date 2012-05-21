@@ -1,1 +1,0 @@
-/home/william/Dropbox/configs/vim
