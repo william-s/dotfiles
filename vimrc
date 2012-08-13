@@ -49,10 +49,10 @@ set diffopt+=iwhite
 set hlsearch
 set incsearch
 set clipboard+=unnamed
-set autoread
 set grepprg=grep\ -nH\ $*
 set formatprg=fmt
 set spelllang=en_us
+set listchars=tab:→\ ,eol:↓,trail:⊥
 
 set relativenumber
 let mapleader = ","
@@ -65,9 +65,12 @@ ca w!! w !sudo tee "%"
 
 autocmd FileType * set ai ts=4 sw=4 sts=4 sta et "autoindent tabstop shiftwidth softtabstop smarttab expandtab
 autocmd FileType javascript set ai ts=2 sw=2 sts=4 sta et
+autocmd FileType make setlocal noexpandtab
 au FileType mail set spell tw=78 formatprg="fmt -w 78"
 
+"toggle some basic settings
 nmap <silent> <leader>sp :set spell!<CR>
+nmap <leader>l :set list!<CR>
 
 "autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 
@@ -135,6 +138,11 @@ let NERDTreeShowBookmarks=1
 
 " Don't display these kinds of files
 let NERDTreeIgnore=[]
+
+"-----------------------------------------------------------------------------
+" Other Plugin Settings
+"-----------------------------------------------------------------------------
+nnoremap <F5> :GundoToggle<CR>
 
 "-----------------------------------------------------------------------------
 " Set up the window colors and size

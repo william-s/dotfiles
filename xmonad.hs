@@ -21,18 +21,18 @@ import qualified Data.Map        as M
 
 -- Appearence
 myFont = "inconsolata:pixelsize=16:bold:antialias=true"
-colorBlack        = "#060203" --color0
-colorBlackAlt     = "#444444" --color8
-colorWhite        = "#d9fdee" --color7
-colorWhiteAlt     = "#c5e0e1" --color15
-colorRed          = "#c54200" --color1     
-colorRedAlt       = "#db703a" --color9     
-colorYellow       = "#e3a100" --color3    
-colorYellowAlt    = "#e5be21" --color11     
-colorBlue         = "#3856b8" --color4     
-colorBlueAlt      = "#1793d1" --color12     
-colorCyan         = "#2e8fac" --color6
-colorCyanAlt      = "#48a0b8" --color14
+colorBlack        = "#000000" --color0
+colorBlackAlt     = "#545454" --color8
+colorWhite        = "#ababab" --color7
+colorWhiteAlt     = "#eeeeee" --color15
+colorRed          = "#b31919" --color1     
+colorRedAlt       = "#ff3333" --color9     
+colorYellow       = "#ecb613" --color3    
+colorYellowAlt    = "#fafa38" --color11     
+colorBlue         = "#7053c6" --color4     
+colorBlueAlt      = "#8c8cf2" --color12     
+colorCyan         = "#29a385" --color6
+colorCyanAlt      = "#52e0e0" --color14
 
 myDzenPP h = defaultPP
             { ppCurrent  = dzenColor colorRedAlt colorBlack . wrap "[" "]" --active tag
@@ -66,7 +66,7 @@ keysToAdd x =
         , ((mod4Mask .|. shiftMask, xK_Right), shiftNextScreen)
         , ((mod4Mask .|. shiftMask, xK_Left),  shiftPrevScreen)
         , ((mod4Mask,               xK_z),     toggleWS)
-        , ((mod4Mask,               xK_q), safeSpawnProg "xmonad --recompile; xmonad --restart")
+        , ((mod4Mask,               xK_q), safeSpawnProg "kill conky; kill dzen2; xmonad --recompile")
         ]
 
 keysToDel x = []
@@ -83,7 +83,6 @@ myManageHook = composeAll
     [ className =? "Gimp"      --> doFloat
     , className =? "MPlayer" --> (ask >>= doF . W.sink)
     , className =? "Chromium"  --> doShift "WWW" 
-    , className =? "Chrome"  --> doShift "WWW" 
     , className =? "Firefox"  --> doShift "WWW" 
     ]
 
@@ -128,7 +127,7 @@ main = do
         , modMask     = mod4Mask -- Win key or Super_L
         , borderWidth = 1
         , normalBorderColor = colorBlack
-        , focusedBorderColor = colorWhite
+        , focusedBorderColor = colorYellow
         , keys = myKeys
         , manageHook = manageDocks <+> myManageHook 
                         <+> manageHook defaultConfig

@@ -1,16 +1,19 @@
 zstyle ':omz:*' case-sensitive 'no'
 zstyle ':omz:*' color 'yes'
 zstyle ':omz:load' omodule 'environment' 'bindkey' 'completion' 'history' 'directory' 'alias' 'prompt' 'git' 'sprunge' 'tmux' 'pacman' 'pacaur'
-zstyle ':omz:module:prompt' theme 'archey' 'y' 'blu' 'n'
+zstyle ':omz:module:prompt' theme 'archey' '' '' 'n'
 
 autoload omz && omz
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/core_perl:/home/william/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/core_perl:/home/william/bin:/home/william/.cabal/bin:/home/william/code/go/bin
+
+export GOPATH=/home/william/code/go:$GOPATH
 
 bin-exist() {[[ -x `which  $1 2>/dev/null` ]]}
 
 export EDITOR='vim'
 export PAGER='most'
+bindkey -e
 
 setopt SHARE_HISTORY
 
@@ -42,9 +45,9 @@ alias sds='sudo systemctl status'
 compdef _sds='systemctl'
 alias sdr='sudo systemctl restart'
 compdef _sdr='systemctl'
-alias sdls='sudo systemctl units'
+alias sdls='sudo systemctl list-units'
 compdef _sdls='systemctl'
-alias sdj='sudo systemd-journalctl'
+alias sdj='sudo journalctl'
 alias sdgrep='sudo systemctl list-unit-files | grep'
 compdef _sdgrep='grep'
 

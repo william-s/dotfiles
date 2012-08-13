@@ -1,5 +1,5 @@
 !! Color
-#include "/home/william/.colors/tomorrow-night-bright"
+#include "/home/william/.colors/custom2"
 
 URxvt*font: xft:Consolas:style=Regular:pixelsize=14
 URxvt.iconFile:    /usr/share/icons/Clarity/scalable/apps/terminal.svg
@@ -11,12 +11,11 @@ URxvt.keysym.C-0xff0d:    perl:url-picker
 URxvt.keysym.Home:  \033[1~
 URxvt.keysym.End:  \033[4~
 
-URxvt.urlLauncher:   firefox
-!!URxvt.scrollstyle: plain
+URxvt.urlLauncher:   /usr/bin/firefox
 URxvt.scrollBar: off
 URxvt.depth: 32
 URxvt.borderless: 1
-URxvt.background: rgba:0000/0000/0000/AAAA
+URxvt.background: rgba:0000/0000/0000/BBBB
 
 !! XFT
 Xft.autohint: 0
@@ -26,4 +25,6 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.dpi: 96
 Xft.rgba: rgb
+
+! vim: syn=xdefaults et 
 

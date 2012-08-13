@@ -15,12 +15,12 @@ X_POS_R=2050
 Y_POS=0
 
 #Colors and font
-CRIT="#e3a100"
-BAR_FG="#1793d1"
-BAR_BG="#444444"
-DZEN_FG="#c5e0e1"
-DZEN_FG2="#48a0b8"  #is default from xmonad.hs
-DZEN_BG="#060203"
+CRIT="#ff3333"
+BAR_FG="#52e0e0"
+BAR_BG="#545454"
+DZEN_FG="#eeeeee"
+DZEN_FG2="#eeeeee"  #is default from xmonad.hs
+DZEN_BG="#000000"
 COLOR_SEP="#3856b8"
 SEP=" "
 FONT="inconsolata:pixelsize=18:bold:antialias=true"
@@ -60,7 +60,7 @@ printVolInfo() {
     Perc=$(pacmd list-sinks | sed -n 's/\svolume:\s0:\s*\([0-9]\{1,3\}%\).*/\1/p' | tail -n1)
     echo -n "^fg() ^ca(1,$VOL_MUTE_CMD)^ca(4,$VOL_UP_CMD)^ca(5,$VOL_DOWN_CMD)VOL^ca()^ca()^ca() "
         if [[ $Perc != 0.0 ]]; then
-            echo -n "$(echo $Perc | gdbar -fg $CRIT -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
+            echo -n "$(echo $Perc | gdbar -fg $BAR_FG -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
             echo -n "^fg()off"
         else
             echo -n "$(echo $Perc | gdbar -fg $BAR_FG -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
@@ -106,12 +106,8 @@ printDropBoxInfo() {
 }
 
 printPacaurInfo() {
-    echo -n "^fg()Pacaur ^fg()"
-    if [[ $PackCount == "0" ]]; then
-        echo -n "^fg()0^fg()"
-    else
-        echo -n "^fg($CRIT)$PackCount"
-    fi
+    [[ $PackCount -gt 0 ]] && $PackCount="^fg($CRIT)$PackCount^fg()"
+    echo -n "^fg()Pacaur $PackCount"
     return
 }
 
