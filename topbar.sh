@@ -7,11 +7,11 @@
 #Layout
 BAR_H=10
 BIGBAR_W=65
-WIDTH_L=1050
-WIDTH_R=920 #WIDTH_L + WIDTH_R = 1920
+WIDTH_L=900
+WIDTH_R=1020 #WIDTH_L + WIDTH_R = 1920
 HEIGHT=18
 X_POS_L=0
-X_POS_R=2050
+X_POS_R=900
 Y_POS=0
 
 #Colors and font
@@ -60,7 +60,7 @@ printVolInfo() {
     Perc=$(pacmd list-sinks | sed -n 's/\svolume:\s0:\s*\([0-9]\{1,3\}%\).*/\1/p' | tail -n1)
     echo -n "^fg() ^ca(1,$VOL_MUTE_CMD)^ca(4,$VOL_UP_CMD)^ca(5,$VOL_DOWN_CMD)VOL^ca()^ca()^ca() "
         if [[ $Perc != 0.0 ]]; then
-            echo -n "$(echo $Perc | gdbar -fg $BAR_FG -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
+            echo -n "$(echo $Perc | gdbar -fg $CRIT -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
             echo -n "^fg()off"
         else
             echo -n "$(echo $Perc | gdbar -fg $BAR_FG -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
@@ -106,8 +106,12 @@ printDropBoxInfo() {
 }
 
 printPacaurInfo() {
-    [[ $PackCount -gt 0 ]] && $PackCount="^fg($CRIT)$PackCount^fg()"
-    echo -n "^fg()Pacaur $PackCount"
+    echo -n "^fg()Pacaur ^fg()"
+    if [[ $PackCount == "0" ]]; then
+        echo -n "^fg()0^fg()"
+    else
+        echo -n "^fg($CRIT)$PackCount"
+    fi
     return
 }
 
@@ -165,12 +169,12 @@ printLeft() {
 }
 printRight() {
     while true; do
-        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp PackCount 
+        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc Temp BatBar BatShort BatTime ESSID LinkQual 
         printCPUInfo
         printSpace
         printMemInfo
         printSpace
-        printTempInfo
+        echo -n "$Temp $BatShort $ESSID $LinkQual"
         printSpace
         printDateInfo
         echo
@@ -178,5 +182,5 @@ printRight() {
     return
 }
 #Print all and pipe into dzen
-conky -c $CONKYFILE -u $INTERVAL | printLeft | dzen2 -x $X_POS_L -y $Y_POS -w $WIDTH_L -h $HEIGHT -fn $FONT -ta 'l' -bg $DZEN_BG -fg $DZEN_FG -p -e '' &
+#conky -c $CONKYFILE -u $INTERVAL | printLeft | dzen2 -x $X_POS_L -y $Y_POS -w $WIDTH_L -h $HEIGHT -fn $FONT -ta 'l' -bg $DZEN_BG -fg $DZEN_FG -p -e '' &
 conky -c $CONKYFILE -u $INTERVAL | printRight | dzen2 -x $X_POS_R -y $Y_POS -w $WIDTH_R -h $HEIGHT -fn $FONT -ta 'r' -bg $DZEN_BG -fg $DZEN_FG -p -e ''

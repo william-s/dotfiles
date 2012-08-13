@@ -66,7 +66,7 @@ keysToAdd x =
         , ((mod4Mask .|. shiftMask, xK_Right), shiftNextScreen)
         , ((mod4Mask .|. shiftMask, xK_Left),  shiftPrevScreen)
         , ((mod4Mask,               xK_z),     toggleWS)
-        , ((mod4Mask,               xK_q), safeSpawnProg "kill conky; kill dzen2; xmonad --recompile")
+        , ((mod4Mask,               xK_q), safeSpawnProg "killall conky dzen2; xmonad --recompile")
         ]
 
 keysToDel x = []
@@ -74,9 +74,9 @@ keysToDel x = []
 newKeys x = M.union (keys defaultConfig x) (M.fromList (keysToAdd x))
 myKeys x = foldr M.delete (newKeys x) (keysToDel x)
 
-myWorkspaceBar, myBottomStatusBar, myTopStatusBar :: String
-myWorkspaceBar    = "dzen2 -x '1050' -y '0' -h '18' -w '1000' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
-myBottomStatusBar = ""
+myWorkspaceBar :: String
+myWorkspaceBar    = "dzen2 -x '0' -y '0' -h '18' -w '1000' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
+--myBottomStatusBar = ""
 myTopStatusBar    = "/home/william/.xmonad/topbar.sh"
 
 myManageHook = composeAll
