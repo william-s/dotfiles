@@ -8,7 +8,7 @@ SOURCES=$(wildcard *)
 all: link submodules
 
 link: $(SOURCES)
-	$(foreach file, $^, ln -s $(CURDIR)/$(file) ~/.$(file); )
+	$(foreach file, $^, ln -si $(CURDIR)/$(file) ~/.$(file); )
 
 submodules:
 	git submodule init
@@ -20,8 +20,7 @@ echo:
 clean: $(SOURCES)
 	@echo "*** Notice: confirm that each file is a symlink! ***"
 	@echo 
-	$(foreach file, $^, rm -i '/home/william/.$(file)' ; )
+	$(foreach file, $^, rm -i $(HOME)/.$(file) ; )
 
 destroy: $(SOURCES)
-	$(foreach file, $^, rm -rI $(HOME)/.$(file) ; )
-
+	$(foreach file, $^, rm -I $(HOME)/.$(file) ; )
