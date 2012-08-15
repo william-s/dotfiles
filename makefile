@@ -1,5 +1,6 @@
 SOURCES=$(wildcard *) 
-# TODO ignore readme, special handling or refactor zsh prompt
+SOURCES=$(patsubst %readme.md,,$(SOURCES))
+# TODO special handling or refactor zsh prompt
 # TODO is there a better way to clean? make uninteractive versions?
 # if only find could handle special characters!
 # $(foreach file, $^, find $(HOME) -lname '.$(file)' -delete \; )
