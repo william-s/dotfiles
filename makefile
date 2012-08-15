@@ -15,9 +15,13 @@ echo:
 	@echo $(SOURCES)
 
 clean: $(SOURCES)
-	$(foreach file, $^, rm -i $(HOME)/.$(file) ; )
+	@echo "WARNING: The search may accidently include other symlinks that include dotfile names as a substring"
+	@echo
+	$(foreach file, $^, rm -i `find $(HOME) -maxdepth 1 -lname "*$(file)" -print` ;)
+	# if only find could handle special characters!
+	# $(foreach file, $^, find $(HOME) -lname '.$(file)' -delete \; )
 
 destroy: $(SOURCES)
 	$(foreach file, $^, rm -rI $(HOME)/.$(file) ; )
 
-# TODO reduce safety of clean & destroy?
+# TODO is there a better way to clean? make uninteractive versions?
