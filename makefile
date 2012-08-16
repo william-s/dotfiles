@@ -1,5 +1,6 @@
 ALLFILES=$(wildcard *) 
-SOURCES=$(patsubst %readme.md,,$(ALLFILES))
+FILES=$(patsubst %readme.md,,$(ALLFILES))
+SOURCES=$(patsubst %makefile,,$(FILES))
 # TODO special handling or refactor zsh prompt
 # TODO is there a better way to clean? make uninteractive versions?
 # if only find could handle special characters!
