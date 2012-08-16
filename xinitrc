@@ -1,19 +1,20 @@
 #!/bin/sh
 
-/usr/bin/xcalib -d :0 /usr/share/color/icc/UX31.icc
+
+/home/william/.screenlayout/dual-head.sh
+
+xrdb -merge $HOME/.Xresources
 
 urxvtd -q -f -o
-#compton -cCGb -t-5 -l-5 -r4.2 -o.45 
+#compton -cCGb -t-5 -l-5 -r4.2 -o.55 
 xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 
 /usr/bin/xmodmap $HOME/.Xmodmap
 
-xrdb -merge $HOME/.Xresources
-
 xscreensaver &
+pulseaudio --start
 
 /usr/bin/dropbox start &
-/usr/bin/feh --bg-center /home/william/.wallpaper
+/usr/bin/feh --bg-scale --no-xinerama /home/william/.wallpaper
 
-ck-launch-session xmonad
-#ck-launch-session startlxde
+ck-launch-session /home/william/.cabal/bin/xmonad
