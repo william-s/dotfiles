@@ -17,9 +17,6 @@
 [submodule "vim/bundle/jade"]
 	path = vim/bundle/jade
 	url = https://github.com/digitaltoad/vim-jade.git
-[submodule "vim/bundle/javascript"]
-	path = vim/bundle/javascript
-	url = https://github.com/pangloss/vim-javascript.git
 [submodule "vim/bundle/vim-l9"]
 	path = vim/bundle/vim-l9
 	url = https://github.com/clones/vim-l9.git
@@ -41,9 +38,6 @@
 [submodule "vim/bundle/bufkill"]
 	path = vim/bundle/bufkill
 	url = https://github.com/vim-scripts/bufkill.vim.git
-[submodule "vim/bundle/easygrep"]
-	path = vim/bundle/easygrep
-	url = https://github.com/vim-scripts/EasyGrep.git
 [submodule "vim/bundle/snipmate"]
 	path = vim/bundle/snipmate
 	url = https://github.com/msanders/snipmate.vim.git
@@ -56,3 +50,6 @@
 [submodule "vim/bundle/vim-golang"]
 	path = vim/bundle/vim-golang
 	url = https://github.com/jnwhiteh/vim-golang.git
+[submodule "vim/bundle/vim-javascript"]
+	path = vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
