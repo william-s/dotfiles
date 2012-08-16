@@ -1,0 +1,34 @@
+#depends conky or conky-cli compiled w/ --enable-wlan, edit pkgbuild
+background no
+out_to_console yes
+#out_to_x no
+update_interval 1.0
+update_interval_on_battery 3.0
+
+TEXT
+${execi 30 date +"%m.%d.%Y/%a %H:%M"}|\
+${cpu cpu1}|\
+${cpu cpu2}|\
+${cpu cpu3}|\
+${cpu cpu4}|\
+${memperc}|\
+${acpitemp}|\
+${battery_bar}|\
+${battery_short}|\
+${battery_time}|\
+${if_up wlan0}|\
+${wireless_essid wlan0}|\
+${wireless_link_qual_perc wlan0}|\
+${endif}|\
+${if_up wlan1}|\
+${wireless_essid wlan1}|\
+${wireless_link_qual_perc wlan1}|\
+${endif}
+#${execi 120 sensors | sed -n 's/CPU Temp[^0-9]*\([0-9]\+\).*/\1/p'}|\
+#${execi 120 sensors | sed -n 's/MB Temp[^0-9]*\([0-9]\+\).*/\1/p'}|\
+#${execi 120 sensors | sed -n 's/temp1.*+\([0-9]\+\).*/\1/p'}|\
+#${execi 1800 conkyForecastWU -i }|\
+#${execi 300 pacaur -Qu | wc -l}|\
+#^fg()${if_match "${mpd_status}" != "Stopped"}^fg(\#9d9d9d)${mpd_status} ^fg(\#3475aa)${mpd_artist} ^fg(\#444444)- ^fg(\#3475aa)${mpd_title} ^fg(\#9d9d9d)${mpd_elapsed}^fg(\#444444)/^fg(\#9d9d9d)${mpd_length}${else}^fg(\#9d9d9d)Stopped${endif}|\  #fix this garbage
+#${mpd_random}|\
+#${mpd_repeat}
