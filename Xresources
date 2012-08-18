@@ -1,5 +1,4 @@
 !! Color
-#include "/home/william/.colors/custom2"
 
 URxvt*font: xft:Consolas:style=Regular:pixelsize=14
 URxvt.iconFile:    /usr/share/icons/Clarity/scalable/apps/terminal.svg

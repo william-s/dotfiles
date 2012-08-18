@@ -77,7 +77,7 @@ myKeys x = foldr M.delete (newKeys x) (keysToDel x)
 myWorkspaceBar, myBottomStatusBar, myTopStatusBar :: String
 myWorkspaceBar    = "dzen2 -x '1050' -y '0' -h '18' -w '1000' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
 myBottomStatusBar = ""
-myTopStatusBar    = "/home/william/.xmonad/topbar.sh"
+myTopStatusBar    = "~/.xmonad/topbar.sh"
 
 myManageHook = composeAll
     [ className =? "Gimp"      --> doFloat

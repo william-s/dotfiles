@@ -1,9 +1,10 @@
 #!/bin/sh
 
 
-/home/william/.screenlayout/dual-head.sh
+$HOME/.screenlayout/dual-head.sh
 
 xrdb -merge $HOME/.Xresources
+xrdb -merge $HOME/.colors/custom2
 
 urxvtd -q -f -o
 #compton -cCGb -t-5 -l-5 -r4.2 -o.55 
@@ -15,6 +16,6 @@ xscreensaver &
 pulseaudio --start
 
 /usr/bin/dropbox start &
-/usr/bin/feh --bg-scale --no-xinerama /home/william/.wallpaper
+/usr/bin/feh --bg-scale --no-xinerama $HOME/.wallpaper
 
-ck-launch-session /home/william/.cabal/bin/xmonad
+ck-launch-session $HOME/.cabal/bin/xmonad
