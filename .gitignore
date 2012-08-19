@@ -5,3 +5,8 @@ xmonad/xmonad.hi
 xmonad/xmonad.o
 xmonad/xmonad-x86_64-linux
 xmonad/xmonad.errors
+pentadactyl/info/default/command-history
+pentadactyl/info/default/local-marks
+pentadactyl/info/default/registers
+pentadactyl/info/default/register-ring
+pentadactyl/info/default/url-marks

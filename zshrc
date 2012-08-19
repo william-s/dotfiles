@@ -5,9 +5,9 @@ zstyle ':omz:module:prompt' theme 'archey' '' '' 'n'
 
 autoload omz && omz
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/core_perl:/home/william/bin:/home/william/.cabal/bin:/home/william/code/go/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/core_perl:$HOME/bin:$HOME/.cabal/bin:$HOME/code/go/bin
 
-export GOPATH=/home/william/code/go:$GOPATH
+export GOPATH=$HOME/code/go:$GOPATH
 
 bin-exist() {[[ -x `which  $1 2>/dev/null` ]]}
 

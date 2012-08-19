@@ -2,6 +2,7 @@ ALLFILES=$(wildcard *)
 FILES=$(patsubst %readme.md,,$(ALLFILES))
 SOURCES=$(patsubst %makefile,,$(FILES))
 # TODO special handling or refactor zsh prompt
+# TODO link is creating folder links in vim/vim and colors/colors
 # TODO is there a better way to clean? make uninteractive versions?
 # if only find could handle special characters!
 # $(foreach file, $^, find $(HOME) -lname '.$(file)' -delete \; )
