@@ -15,28 +15,28 @@
 *color9:        #ff3333
 
 ! Green
-*color2:        #24a824
+*color2:        #42ad1f
 *color10:       #47eb47
 
 ! Yellow
-*color3:        #cccc33
+*color3:        #ecb613
 *color11:       #fafa38
 
 ! Blue
-*color4:        #5959c0
-*color12:       #7d7de8
+*color4:        #7053c6
+*color12:       #8c8cf2
 
 ! Magenta
-*color5:        #c059c0
+*color5:        #cb4dac
 *color13:       #e87de8
 
 ! Cyan
-*color6:        #2e9e9e 
+*color6:        #29a385 
 *color14:       #52e0e0
 
 ! White
 *color7:        #ababab
 *color15:       #eeeeee
 
-! vim: syn=xdefaults et sw=2
+! vim: syn=xdefaults et 
 

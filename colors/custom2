@@ -1,5 +1,5 @@
-*background:             #000000
-*foreground:             #eeeeee
+*background:             #020202
+*foreground:             #d8d8d8
 *fading:                 40
 *fadeColor:              #060203
 *cursorColor:            #3856b8
@@ -7,36 +7,35 @@
 *pointerColorForeground: #3856b8
 
 ! Black
-*color0:        #000000
-*color8:        #545454
+*color0:        #020202
+*color8:        #2c2f30
 
 ! Red
-*color1:        #b31919
-*color9:        #ff3333
+*color1:        #cc7f14
+*color9:        #eb9317
 
 ! Green
-*color2:        #42ad1f
-*color10:       #47eb47
+*color2:        #65ac35
+*color10:       #83df45
 
 ! Yellow
-*color3:        #ecb613
-*color11:       #fafa38
+*color3:        #b7ba54
+*color11:       #dbdf64
 
 ! Blue
-*color4:        #7053c6
-*color12:       #8c8cf2
+*color4:        #3048a6
+*color12:       #3c5ad1
 
 ! Magenta
-*color5:        #cb4dac
-*color13:       #e87de8
+*color5:        #ac357e
+*color13:        #df45a4
 
 ! Cyan
-*color6:        #29a385 
+*color6:        #3fadad 
 *color14:       #52e0e0
 
 ! White
 *color7:        #ababab
-*color15:       #eeeeee
+*color15:       #f0f0f0
 
 ! vim: syn=xdefaults et 
-
