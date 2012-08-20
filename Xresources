@@ -1,5 +1,3 @@
-!! Color
-
 URxvt*font: xft:Consolas:style=Regular:pixelsize=14
 URxvt.iconFile:    /usr/share/icons/Clarity/scalable/apps/terminal.svg
 URxvt.visualBell: true
@@ -14,7 +12,7 @@ URxvt.urlLauncher:   /usr/bin/firefox
 URxvt.scrollBar: off
 URxvt.depth: 32
 URxvt.borderless: 1
-URxvt.background: rgba:0000/0000/0000/BBBB
+URxvt.background: rgba:0000/0000/0000/CCCC
 
 !! XFT
 Xft.autohint: 0
@@ -26,4 +24,3 @@ Xft.dpi: 96
 Xft.rgba: rgb
 
 ! vim: syn=xdefaults et 
-
