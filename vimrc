@@ -2,7 +2,7 @@
 " stuff taken from https://github.com/derekwyatt/vim-config
 " and many many others
 filetype off 
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
 
 set nocompatible
