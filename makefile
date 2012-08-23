@@ -25,7 +25,7 @@ echo:
 # exact name matches
 clean: $(SOURCES)
 	$(foreach file, $^, find $(HOME) -name .$(file) -lname '*' -delete ; ) 
-	@find $(CURDIR)/vim/autoload -lname pathogen.vim -delete
+	@find $(CURDIR)/vim/autoload -name pathogen.vim -lname '*' -delete
 
 destroy: clean $(SOURCES)
 	$(foreach file, $^, find $(HOME) -maxdepth 1 \( -type d -o -type f \) -name .$(file) -print0 | xargs -r --interactive -0 rm -r ; )

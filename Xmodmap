@@ -1,6 +1,7 @@
 clear Lock
-add Mod4 = Super_R
-add Control = Control_R
 
 keycode  66 = Control_R NoSymbol Control_R
 keycode 135 = Super_R NoSymbol Super_R
+
+add Mod4 = Super_R
+add Control = Control_R
