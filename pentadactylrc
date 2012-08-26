@@ -1,10 +1,10 @@
-"hg6814
 loadplugins '\.(js|penta)$'
 group user
 
 colorscheme molokai
 
-set hintkeys='masdfghjkl;qwertyuiopzxcvbn'
+set hintkeys='masdhjkl;qwertyuiopzxcvbn'
+set defsearch=duckduckgo
 
 map , <Leader>
 nmap -builtin ; :
@@ -15,4 +15,4 @@ vmap -builtin : ;
 :hi -a Hint font-family: "Consolas"; font-size: 13px !important;
 :hi -a font-size: 13px !important;
 
-" vim: set ft=pentadactyl:
+" vim: set ft=vim:
