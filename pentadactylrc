@@ -3,7 +3,7 @@ group user
 
 colorscheme molokai
 
-set hintkeys='masdhjkl;qwertyuiopzxcvbn'
+set hintkeys='masdfghjkl;qwertyuiopzxcvbn'
 set defsearch=duckduckgo
 
 map , <Leader>
