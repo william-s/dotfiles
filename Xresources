@@ -4,9 +4,9 @@ URxvt.visualBell: true
 URxvt.urgentOnBell: true
 
 URxvt.perl-ext: default,matcher,url-picker
-URxvt.keysym.C-0xff0d:    perl:url-picker
-URxvt.keysym.Home:  \033[1~
-URxvt.keysym.End:  \033[4~
+URxvt*keysym.C-0xff0d:    perl:url-picker
+URxvt*keysym.Home:  \033[1~
+URxvt*keysym.End:  \033[4~
 
 URxvt.urlLauncher:   /usr/bin/firefox
 URxvt.scrollBar: off
