@@ -65,11 +65,12 @@ macro index,pager A "<enter-command>unset trash\n <delete-message>" "Gmail archi
 macro index  <backtab> "<search> ~U<enter>" "shift tab to search unread"
 macro attach S <save-entry><kill-line>$HOME/
 macro index Z ";WN" "Mark as read"
-macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index,pager gh "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index,pager gi "<change-folder>=[Gmail]/Important<enter>" "Go to important mail"
 macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 macro index,pager go "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to sent messages"
-macro index,pager gb "<change-folder>=Bulk<enter>" "Go to bulk messages"
+macro index,pager gp "<change-folder>=Promotions<enter>" "Go to bulk messages"
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 macro pager \cu "<pipe-message>urlview<enter>"
 bind index,pager G group-reply
