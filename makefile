@@ -4,7 +4,7 @@ SOURCES=$(patsubst %makefile,,$(FILES))
 # TODO special handling or refactor zsh prompt
 
 
-all: link submodules pathogen
+all: link pathogen submodules
 
 link: $(SOURCES)
 	$(foreach file, $^, ln -si $(CURDIR)/$(file) ~/.$(file); )
