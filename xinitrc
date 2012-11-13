@@ -18,4 +18,4 @@ pulseaudio --start
 /usr/bin/dropbox start &
 /usr/bin/feh --bg-scale --no-xinerama $HOME/.wallpaper
 
-ck-launch-session $HOME/.cabal/bin/xmonad
+$HOME/.cabal/bin/xmonad

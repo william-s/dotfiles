@@ -4,7 +4,7 @@ SOURCES=$(patsubst %makefile,,$(FILES))
 # TODO special handling or refactor zsh prompt
 
 
-all: link pathogen submodules
+all: link submodules pathogen 
 
 link: $(SOURCES)
 	$(foreach file, $^, ln -si $(CURDIR)/$(file) ~/.$(file); )
@@ -14,6 +14,7 @@ submodules:
 	git submodule update
 
 pathogen:
+	@mkdir -p vim/autoload
 	@ln -s -t vim/autoload/ $(CURDIR)/vim/pathogen/autoload/pathogen.vim
 
 echo:
