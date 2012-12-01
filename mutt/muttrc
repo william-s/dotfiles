@@ -59,6 +59,18 @@ set message_cachedir =~/.mutt/cache/bodies
 # Mailcap (autoexecute program declarations)
 set mailcap_path 	= ~/.mutt/mailcap
 
+bind pager k previous-line
+bind pager j next-line
+bind pager gg top
+bind pager G bottom
+bind index gg first-entry
+bind index G last-entry
+bind pager K previous-undeleted
+bind pager J next-undeleted
+bind index K previous-unread
+bind index J next-unread
+bind index,pager R group-reply
+
 # Archive Messages (A) and some other nifty commands
 bind editor <space> noop #fix for spaces in names of folders
 macro index,pager A "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
@@ -74,7 +86,6 @@ macro index,pager gp "<change-folder>=Promotions<enter>" "Go to bulk messages"
 macro index,pager gn "<change-folder>=Notifications<enter>"
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 macro pager \cu "<pipe-message>urlview<enter>"
-bind index,pager G group-reply
 
 macro generic \ch "!lynx /usr/share/doc/mutt/manual.html\n" "Show Mutt Docs"
 
