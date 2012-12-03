@@ -15,8 +15,6 @@ export EDITOR='vim'
 export PAGER='most'
 bindkey -e
 
-eval $(ssh-agent)
-
 setopt SHARE_HISTORY
 
 # safety features
@@ -95,6 +93,8 @@ alias halt='sudo shutdown -h now'
 
 alias f='find | grep'
 alias c='clear'
+
+alias sshkey='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)'
 
 function sshtunnel {
     ssh -ND $2 -v $1
