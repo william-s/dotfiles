@@ -15,6 +15,8 @@ export EDITOR='vim'
 export PAGER='most'
 bindkey -e
 
+eval $(ssh-agent)
+
 setopt SHARE_HISTORY
 
 # safety features
