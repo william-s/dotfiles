@@ -6,7 +6,7 @@ alias -g T=' | tail -n'
 alias -g H=' | head -n'
 alias -g C=' | xclip -selection c'
 alias -g DN='/dev/null'
-#alias -g sprunge='| curl -F "sprunge=<-" http://sprunge.us'
+alias -g PB='| curl -F "sprunge=<-" http://sprunge.us'
 
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
@@ -21,6 +21,14 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff='colordiff' 
 
+alias l='ls -hl '
+alias la='ls -A'
+alias ll='l -A'
+alias lx='ll -BX'           # sort by extension
+alias lz='ll -rS'           # sort by size
+alias lt='ll -rt'           # sort by date
+alias lsd='ls -d .*(/) *(/)'
+
 alias tmux='tmux -u -2'
 alias open='xdg-open'
 
@@ -29,13 +37,8 @@ compdef v='vim'
 alias cleanvim='find ./ -type f -iname ".*.*sw*" -print0 | xargs --interactive -0 rm' # seems safer than find -delete
 alias em='emacs -nw'
 
-alias l='ls -hl '
-alias la='ls -A'
-alias ll='l -A'
-alias lx='ll -BX'           # sort by extension
-alias lz='ll -rS'           # sort by size
-alias lt='ll -rt'           # sort by date
-alias lsd='ls -d .*(/) *(/)'
+alias g='git'
+compdef g='git'
 
 alias ..='cd ..'
 alias dud='du -s *(/)'
