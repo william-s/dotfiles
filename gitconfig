@@ -1,0 +1,29 @@
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    di = diff
+    dw = diff -w
+    dc = diff --cached
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    la = log --all --color --decorate --graph --oneline
+    lo = log --oneline
+    p = push
+    up = pull
+    st = status
+    ss = status --short
+    undo = checkout --
+    hard = reset --hard
+[user]
+    name = William Sherer
+    email = bswilliams@gmail.com
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = true
+[core]
+    excludesfile = /home/william/.global_ignore
+[push]
+    default = simple
