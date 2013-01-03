@@ -33,6 +33,7 @@ set timeoutlen=500
 set history=500
 set scrolloff=5
 set virtualedit=onemore
+set nrformats=
 
 set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
 
@@ -117,21 +118,6 @@ if has("unix")
 else
     set shell=ksh.exe
 endif
-
-"-----------------------------------------------------------------------------
-" NERD Tree Plugin Settings
-"-----------------------------------------------------------------------------
-" Toggle the NERD Tree on an off with F7
-noremap <F7> :NERDTreeToggle<CR>
-
-" Close the NERD Tree with Shift-F7
-noremap <S-F7> :NERDTreeClose<CR>
-
-" Show the bookmarks table on startup
-let NERDTreeShowBookmarks=1
-
-" Don't display these kinds of files
-let NERDTreeIgnore=[]
 
 "-----------------------------------------------------------------------------
 " Other Plugin Settings
