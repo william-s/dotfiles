@@ -45,8 +45,6 @@ MpdRepeat="Off"
 VOL_MUTE_CMD="/usr/bin/mute_toggle"
 VOL_UP_CMD="/usr/bin/vol_up"
 VOL_DOWN_CMD="/usr/bin/vol_down"
-DROP_START_CMD="dropbox start"
-DROP_STOP_CMD="dropbox stop"
 MPD_REP_CMD="ncmpcpp repeat"
 MPD_RAND_CMD="ncmpcpp random"
 MPD_TOGGLE_CMD="ncmpcpp toggle"
@@ -95,15 +93,6 @@ printMemInfo() {
     return
 }
 
-printDropBoxInfo() {
-    DropboxON=$(pgrep dropbox)
-    if [[ $DropboxON == "0" ]]; then
-        echo -n "^fg()^ca(1,$DROP_START_CMD)DBOX^ca() ^fg()Off"
-    else
-        echo -n "^fg()^ca(1,$DROP_STOP_CMD)DBOX^ca() ^fg($CRIT)On"
-    fi
-    return
-}
 
 printPacaurInfo() {
     [[ $PackCount -gt 0 ]] && $PackCount="^fg($CRIT)$PackCount^fg()"
@@ -150,8 +139,6 @@ printLeft() {
     while true; do
         read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp PackCount 
         printVolInfo
-        printSpace
-        printDropBoxInfo
         printSpace
         printPacaurInfo
         printSpace
