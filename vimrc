@@ -21,7 +21,7 @@ set backspace=2
 set hidden
 set cpoptions=B$
 
-set relativenumber
+set number
 set laststatus=2
 set lazyredraw
 set showmode
