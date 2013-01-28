@@ -1,29 +1,72 @@
 [alias]
-    br = branch
-    ci = commit
+    a  = add
+    aa = add --all
+    b  = branch
+    bc = checkout -b
+    ca = commit --amend
+    c  = commit
+    cm = commit --message
     co = checkout
-    di = diff
-    dw = diff -w
+    cp = cherry-pick
+    d  = diff
+    dw = diff --ignore-all-space
     dc = diff --cached
+    f = fetch
+    fm = pull
+    g = grep
+    l = log
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
     la = log --all --color --decorate --graph --oneline
     lo = log --oneline
-    p = push
-    up = pull
+    m  = merge
+    o  = checkout
+    p  = push
+    r  = rebase
+    rc = rebase --continue
+    s  = status --short --branch
     st = status
-    ss = status --short
     undo = checkout --
     hard = reset --hard
-[user]
-    name = William Sherer
-    email = bswilliams@gmail.com
+    uncommit = reset --soft HEAD^
+    x  = reset
+
 [color]
     branch = auto
     diff = auto
     interactive = auto
+    pager = true
     status = auto
     ui = true
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "branch"]
+  current = cyan reverse
+  local = cyan
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+
+[color "status"]
+  added = yellow reverse
+  changed = green
+  untracked = cyan
+
 [core]
     excludesfile = /home/william/.global_ignore
+    pager = most
+
 [push]
     default = simple
+
+[user]
+    name = William Sherer
+    email = bswilliams@gmail.com
