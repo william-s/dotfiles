@@ -1,8 +1,11 @@
 [alias]
+    aa = add --all
     br = branch
+    ca = commit --amend
     ci = commit
+    cm = commit -m
     co = checkout
-    di = diff
+    df = diff
     dw = diff -w
     dc = diff --cached
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
@@ -11,7 +14,7 @@
     p = push
     up = pull
     st = status
-    ss = status --short
+    ss = status --short -b
     undo = checkout --
     hard = reset --hard
 [user]
