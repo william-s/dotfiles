@@ -2,11 +2,11 @@
 alias -g F=' | fmt -'
 alias -g M=' | most'
 alias -g G=' | grep'
-alias -g T=' | tail -n'
-alias -g H=' | head -n'
+alias -g T=' | tail --lines'
+alias -g H=' | head --lines'
 alias -g C=' | xclip -selection c'
 alias -g DN='/dev/null'
-alias -g PB='| curl -F "sprunge=<-" http://sprunge.us'
+alias -g PB='| curl --form "sprunge=<-" http://sprunge.us'
 
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
@@ -21,13 +21,14 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff='colordiff' 
 
-alias l='ls -hl '
-alias la='ls -A'
-alias ll='l -A'
+alias l='ls -l  --human-readable'
+alias la='ls --almost-all'
+alias ll='l --almost-all'
 alias lx='ll -BX'           # sort by extension
-alias lz='ll -rS'           # sort by size
-alias lt='ll -rt'           # sort by date
-alias lsd='ls -d .*(/) *(/)'
+alias lz='ll -S --reverse'           # sort by size
+alias lt='ll -t --reverse'           # sort by date
+#alias lsd='ls -d .*(/) *(/)'
+alias lsd='ls --directory *(/)'
 
 alias tmux='tmux -u -2'
 alias open='xdg-open'
@@ -35,14 +36,14 @@ alias open='xdg-open'
 alias v='vim --servername base --remote-silent'
 compdef v='vim'
 alias cleanvim='find ./ -type f -iname ".*.*sw*" -print0 | xargs --interactive -0 rm' # seems safer than find -delete
-alias em='emacs -nw'
+alias em='emacs --no-window-system'
 
 alias g='git'
 compdef g='git'
 
 alias ..='cd ..'
-alias dud='du -s *(/)'
-alias mkdir='mkdir -pv'
+alias dud='du --summarize *(/)'
+alias mkdir='mkdir --parents --verbose'
 
 alias ping='ping -c 5'
 (bin-exist mtr) && alias traceroute='mtr' #remember mtr!
@@ -55,10 +56,10 @@ alias halt='sudo shutdown -h now'
 alias f='find | grep'
 alias c='clear'
 
-alias sshkey='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa)'
+alias sshkey='eval $(/usr/bin/keychain --eval --agents ssh --quick --quiet ~/.ssh/id_rsa)'
 
 alias rsync='rsync --progress'
-alias rsync-ntfs='rsync -av --modify-window=1'
+alias rsync-ntfs='rsync --archive --verbose --modify-window=1'
 
 #systemd
 alias sdc='sudo systemctl'
