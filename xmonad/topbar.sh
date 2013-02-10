@@ -59,7 +59,7 @@ printVolInfo() {
     echo -n "^fg() ^ca(1,$VOL_MUTE_CMD)^ca(4,$VOL_UP_CMD)^ca(5,$VOL_DOWN_CMD)VOL^ca()^ca()^ca() "
         if [[ $Perc != 0.0 ]]; then
             echo -n "$(echo $Perc | gdbar -fg $BAR_FG -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
-            echo -n "^fg()off"
+            echo -n "^fg()"
         else
             echo -n "$(echo $Perc | gdbar -fg $BAR_FG -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
             echo -n "^fg()${Perc}"
@@ -77,9 +77,6 @@ printCPUInfo() {
 }
 
 printTempInfo() {
-    #CPUTemp=$(sensors | sed -n 's/CPU Temp[^0-9]*\([0-9]\+\).*/\1/p')
-    #MBDTemp=$(sensors | sed -n 's/MB Temp[^0-9]*\([0-9]\+\).*/\1/p')
-    #GPUTemp=$(sensors | sed -n 's/temp1.*+\([0-9]\+\).*/\1/p')
     [[ $CPUTemp -gt 60 ]] && CPUTemp="^fg($CRIT)$CPUTemp^fg()"
     [[ $MBDTemp -gt 65 ]] && MBDTemp="^fg($CRIT)$MBDTemp^fg()"
     [[ $GPUTemp -gt 65 ]] && GPUTemp="^fg($CRIT)$GPUTemp^fg()"
