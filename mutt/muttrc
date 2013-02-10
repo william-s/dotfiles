@@ -76,7 +76,8 @@ bind generic  <esc>? what-key
 
 # Archive Messages (A) and some other nifty commands
 bind editor <space> noop #fix for spaces in names of folders
-macro index,pager A "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+#macro index,pager A "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+macro index,pager A "<save-message>=[Gmail]/All Mail<enter><enter>" "Gmail archive message"
 macro index  <backtab> "<search> ~U<enter>" "shift tab to search unread"
 macro attach S <save-entry><kill-line>$HOME/
 macro index X ";WN" "Mark as read"
@@ -88,7 +89,10 @@ macro index,pager go "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to sent mess
 macro index,pager gp "<change-folder>=Promotions<enter>" "Go to bulk messages"
 macro index,pager gn "<change-folder>=Notifications<enter>"
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
-macro pager \cu "<pipe-message>urlview<enter>"
+macro index \ca "<tag-pattern>~R !~D !~F<enter>" "Tag all read, except starred"
+macro index \co "<tag-pattern>~r>1m!~F<enter>" "Tag older than a month, except starred"
+macro index \cx "<tag-prefix><save-message>=[Gmail]/All Mail<enter><enter>"  "Archive All Tagged"
+
 
 macro generic \ch "!lynx /usr/share/doc/mutt/manual.html\n" "Show Mutt Docs"
 
