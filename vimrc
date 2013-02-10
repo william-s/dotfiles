@@ -35,7 +35,14 @@ set scrolloff=5
 set virtualedit=onemore
 set nrformats=
 
-set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
+set statusline=
+set statusline+=%f\                         " file name
+set statusline+=%y\                         " file type
+set statusline+=%h%m%r%w                    " flags
+set statusline+=%{fugitive#statusline()}    " git status
+set statusline+=%=                          " right align
+set statusline+=Line:%l/%L[%p%%]\ Col:%v\   " cursor location
+set statusline+=Buf:#%n\                    " file name
 
 set hlsearch
 set incsearch
@@ -78,6 +85,11 @@ vnoremap : ;
 
 " Exit insert mode
 inoremap jj <esc>
+vnoremap jj <esc>
+
+" auto magic mode
+nnoremap / /\v
+vnoremap / /\v
 
 " Search for trailing whitespace
 nnoremap <leader>w /\s\+$<CR>
