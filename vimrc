@@ -62,7 +62,8 @@ set listchars=tab:→\ ,eol:↓,trail:⊥
 
 
 autocmd FileType * set ai ts=4 sw=4 sts=4 sta et "autoindent tabstop shiftwidth softtabstop smarttab expandtab
-autocmd FileType javascript set ai ts=2 sw=2 sts=4 sta et
+autocmd FileType javascript setlocal ai ts=2 sw=2 sts=2 sta et
+autocmd FileType jade setlocal ai ts=2 sw=2 sts=2 sta et
 autocmd FileType make setlocal noexpandtab
 autocmd FileType mail set spell tw=78 formatprg="fmt -w 78"
 
