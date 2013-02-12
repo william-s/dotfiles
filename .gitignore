@@ -11,7 +11,7 @@ pentadactyl/info/default/registers
 pentadactyl/info/default/register-ring
 pentadactyl/info/default/url-marks
 
-vim/autoload/pathogen.vim
+vim/bundle/*
 vim/spell/
 
 xmonad/history

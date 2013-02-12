@@ -2,10 +2,38 @@
 " stuff taken from https://github.com/derekwyatt/vim-config
 " and many many others
 filetype off 
-call pathogen#infect()
-call pathogen#helptags()
+" call pathogen#infect()
+" call pathogen#helptags()
 
 set nocompatible
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'plasticboy/vim-markdown'
+Bundle 'Shougo/neocomplcache'
+Bundle 'SirVer/ultisnips'
+Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'wincent/Command-T'
+
+Bundle 'matchit.zip'
+
+" Language / Filetype Support
+Bundle 'pangloss/vim-javascript'
+Bundle 'lukerandall/haskellmode-vim'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'wavded/vim-stylus'
+Bundle 'tpope/vim-rails'
+Bundle 'jnwhiteh/vim-golang'
+
+Bundle 'VimClojure'
 
 filetype on
 " Make backspace behave in a sane manner.
@@ -87,6 +115,9 @@ vnoremap : ;
 " Exit insert mode
 inoremap jj <esc>
 vnoremap jj <esc>
+
+" make Y like C, D
+nnoremap Y y$
 
 " auto magic mode
 nnoremap / /\v
