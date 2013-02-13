@@ -114,7 +114,6 @@ vnoremap : ;
 
 " Exit insert mode
 inoremap jj <esc>
-vnoremap jj <esc>
 
 " make Y like C, D
 nnoremap Y y$
@@ -128,6 +127,7 @@ nnoremap <leader>w /\s\+$<CR>
 
 " Toggle last active buffer
 nnoremap <leader><Tab> :b#<CR>
+nnoremap <leader>b :ls<CR>:buffer<space>
 
 " Toggling settings
 noremap <silent> <leader>sp :set spell!<CR>
@@ -156,6 +156,17 @@ ca w!! w !sudo tee "%"
 nnoremap <leader>tl a<C-R>=strftime("%b %d %Y %I:%M%p %Z")<CR><Esc>
 nnoremap <leader>ts a<C-R>=strftime("%I:%M")<CR><Esc>
 
+" emacs keymap in the commandline {{{
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-b> <left>
+cnoremap <c-d> <del>
+cnoremap <c-f> <right>
+cnoremap <c-n> <down>
+cnoremap <c-p> <up>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+
 set shellslash
 if has("unix")
     set shell=zsh
@@ -164,9 +175,9 @@ else
 endif
 
 "-----------------------------------------------------------------------------
-" Other Plugin Settings
+" Plugin Settings
 "-----------------------------------------------------------------------------
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <leader>u :GundoToggle<CR>
 
 let g:haddock_browser = "firefox"
 
