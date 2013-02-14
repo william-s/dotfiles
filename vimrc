@@ -79,6 +79,7 @@ set smartcase
 
 set wildmenu
 set wildignorecase
+set wildignore+=*.o,.git
 set showfulltag
 
 set diffopt+=iwhite
@@ -127,7 +128,6 @@ nnoremap <leader>w /\s\+$<CR>
 
 " Toggle last active buffer
 nnoremap <leader><Tab> :b#<CR>
-nnoremap <leader>b :ls<CR>:buffer<space>
 
 " Toggling settings
 noremap <silent> <leader>sp :set spell!<CR>
@@ -181,6 +181,15 @@ nnoremap <leader>u :GundoToggle<CR>
 
 let g:haddock_browser = "firefox"
 
+
+" Fugitive
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>ga :Gadd<cr>
+nnoremap <leader>ge :Gedit<cr>
+nnoremap <leader>dg :diffget //
+nnoremap <leader>du :diffup
 "-----------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------
