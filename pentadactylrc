@@ -15,4 +15,6 @@ vmap -builtin : ;
 :hi -a Hint font-family: "Consolas"; font-size: 13px !important;
 :hi -a font-size: 13px !important;
 
+set passkeys+='www.google.com/reader':jkiv
+
 " vim: set ft=vim:
