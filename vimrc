@@ -78,8 +78,9 @@ set ignorecase
 set smartcase
 
 set wildmenu
+set wildmode=full
 set wildignorecase
-set wildignore+=*.o,.git
+set wildignore+=*.o,.git,node_modules
 set showfulltag
 
 set diffopt+=iwhite
