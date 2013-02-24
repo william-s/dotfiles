@@ -1,0 +1,35 @@
+music_directory		"/mnt/samba/Music"
+
+playlist_directory  "~/.mpd/playlists"
+db_file             "~/.mpd/mpd.db"
+log_file			"~/.mpd/log"
+pid_file            "~/.mpd/mpd.pid"
+state_file          "~/.mpd/mpdstate"
+sticker_file		"~/.mpd/sticker.sql"
+
+###############################################################################
+
+bind_to_address	    "0.0.0.0"		# optional, IPv4 or IPv6
+port				"6600"
+
+log_level			"default" # secure, verbose other opts
+
+input {
+        plugin "curl"
+}
+
+audio_output {
+	type		"httpd"
+	name		"HTTP Stream"
+	encoder		"lame"		# optional, vorbis or lame
+	port		"8080"
+#	quality		"5.0"			# do not define if bitrate is defined
+	bitrate		"192"			# do not define if quality is defined
+	format		"44100:16:1"
+	max_clients	"0"			# optional 0=no limit
+}
+
+audio_output {
+	type		"pulse"
+	name		"Pulse Output"
+}
