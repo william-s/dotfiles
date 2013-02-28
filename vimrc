@@ -190,7 +190,7 @@ nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>ga :Gadd<cr>
 nnoremap <leader>ge :Gedit<cr>
 nnoremap <leader>dg :diffget //
-nnoremap <leader>du :diffup
+nnoremap <leader>du :diffup<cr>
 "-----------------------------------------------------------------------------
 " Functions
 "-----------------------------------------------------------------------------
