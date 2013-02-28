@@ -1,5 +1,5 @@
 PROMPT=$'%{$fg[yellow]%}%n%{$fg_bold[blue]%}@%m %{$reset_color%}[%~] $(git_prompt_info)\
-%{$fg_bold[blue]%}%h %(!.#.λ)%{$reset_color%} '
+%{$fg_bold[blue]%}%? %(!.#.λ)%{$reset_color%} '
 
 
 GIT_CLEAN_COLOR="%{$fg[blue]%}"
