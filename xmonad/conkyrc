@@ -1,4 +1,4 @@
-#depends conky or conky-cli compiled w/ --enable-wlan, edit pkgbuild
+#depends conky or conky-cli compiled w/ --enable-wifi, edit pkgbuild
 background no
 out_to_console yes
 #out_to_x no
@@ -16,13 +16,13 @@ ${acpitemp}|\
 ${battery_bar}|\
 ${battery_short}|\
 ${battery_time}|\
-${if_up wlan0}|\
-${wireless_essid wlan0}|\
-${wireless_link_qual_perc wlan0}|\
+${if_up wifi0}|\
+${wireless_essid wifi0}|\
+${wireless_link_qual_perc wifi0}|\
 ${endif}|\
-${if_up wlan1}|\
-${wireless_essid wlan1}|\
-${wireless_link_qual_perc wlan1}|\
+${if_up wifi1}|\
+${wireless_essid wifi1}|\
+${wireless_link_qual_perc wifi1}|\
 ${endif}
 #${execi 120 sensors | sed -n 's/CPU Temp[^0-9]*\([0-9]\+\).*/\1/p'}|\
 #${execi 120 sensors | sed -n 's/MB Temp[^0-9]*\([0-9]\+\).*/\1/p'}|\
