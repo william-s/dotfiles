@@ -70,7 +70,7 @@ alias sdr='sudo systemctl restart'
 compdef _sdr='systemctl'
 alias sdls='sudo systemctl list-units'
 compdef _sdls='systemctl'
-alias sdj='sudo journalctl'
+alias sdj='journalctl' #add user to adm group to use journal w/o sudo
 alias sdgrep='sudo systemctl list-unit-files | grep'
 compdef _sdgrep='grep'
 
