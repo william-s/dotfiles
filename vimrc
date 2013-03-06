@@ -131,9 +131,6 @@ nnoremap <leader>w /\s\+$<CR>
 nnoremap <leader><Tab> :b#<CR>
 
 " Toggling settings
-noremap <silent> <leader>sp :set spell!<CR>
-noremap <silent> <leader>l :set list!<CR>
-nnoremap <silent> <leader>n :nohlsearch<CR>
 nnoremap <leader>fm :call ToggleFoldMethod()<CR>
 nnoremap <leader>nm :call ToggleNumberMethod()<CR>
 
