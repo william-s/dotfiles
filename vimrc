@@ -154,8 +154,8 @@ ca w!! w !sudo tee "%"
 " cmap w!! %!sudo tee "%"
 
 " Insert current timestamp
-nnoremap <leader>tl a<C-R>=strftime("%b %d %Y %I:%M%p %Z")<CR><Esc>
-nnoremap <leader>ts a<C-R>=strftime("%I:%M")<CR><Esc>
+nnoremap <leader>itl a<C-R>=strftime("%b %d %Y %I:%M%p %Z")<CR><Esc>
+nnoremap <leader>its a<C-R>=strftime("%I:%M")<CR><Esc>
 
 " emacs keymap in the commandline {{{
 cnoremap <c-a> <home>
