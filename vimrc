@@ -32,8 +32,9 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'wavded/vim-stylus'
 Bundle 'tpope/vim-rails'
 Bundle 'jnwhiteh/vim-golang'
-
-Bundle 'VimClojure'
+Bundle 'tpope/vim-foreplay'
+Bundle 'tpope/vim-classpath'
+Bundle 'guns/vim-clojure-static'
 
 filetype on
 " Make backspace behave in a sane manner.
