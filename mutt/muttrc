@@ -23,8 +23,6 @@ alternative_order text/plain text/html
 # IMAP Settings
 set imap_user = bswilliams@gmail.com
 set imap_pass=`gpg -d ~/.secret/passwd.gpg | awk '/GMAIL:/ {print $2}'`
-
-
 set folder = imaps://imap.gmail.com
 set imap_check_subscribed
 
@@ -76,8 +74,8 @@ bind generic  <esc>? what-key
 
 # Archive Messages (A) and some other nifty commands
 bind editor <space> noop #fix for spaces in names of folders
-#macro index,pager A "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
-macro index,pager A "<save-message>=[Gmail]/All Mail<enter><enter>" "Gmail archive message"
+macro index,pager A "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+#macro index,pager A "<save-message>=[Gmail]/All Mail<enter><enter>" "Gmail archive message"
 macro index  <backtab> "<search> ~U<enter>" "shift tab to search unread"
 macro attach S <save-entry><kill-line>$HOME/
 macro index X ";WN" "Mark as read"
