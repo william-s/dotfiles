@@ -86,16 +86,6 @@ myManageHook = composeAll
     , className =? "Firefox"  --> doShift "WWW" 
     ]
 
-myWorkspaces :: [WorkspaceId]
-myWorkspaces =
-    [ "Term"    
-    , "WWW"     
-    , "Comm"    
-    , "Read"
-    , "Misc"
-    , "6" , "7" , "8" , "9", "0"
-    ]
-
 myXPconfig = defaultXPConfig
     { font                = myFont
     , bgColor             = colorBlack
@@ -134,5 +124,4 @@ main = do
         , layoutHook = myLayoutHook
         , logHook = myLogHook >> (dynamicLogWithPP $ myDzenPP workspaceBar)
         , startupHook = myStartupHook
-        , workspaces = myWorkspaces
         }
