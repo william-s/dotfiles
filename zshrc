@@ -1,13 +1,9 @@
-zstyle ':omz:*' case-sensitive 'no'
-zstyle ':omz:*' color 'yes'
-zstyle ':omz:load' omodule 'environment' 'bindkey' 'completion' 'history' 'directory' 'alias' 'prompt' 'git' 'sprunge' 'tmux' 'pacman' 'pacaur'
-zstyle ':omz:module:prompt' theme 'archey' '' '' 'n'
-
-autoload omz && omz
-# Customize to your needs...
-
 export PATH=$PATH:$HOME/bin:$HOME/.cabal/bin:$HOME/code/go/bin:$HOME/.rvm/bin
 export GOPATH=$HOME/code/go:$GOPATH
+
+for f in $HOME.zsh/0-9*.zsh; do
+    source $f
+done
 
 bin-exist() {[[ -x `which  $1 2>/dev/null` ]]}
 
@@ -15,9 +11,6 @@ export EDITOR='vim'
 export PAGER='most'
 bindkey -e
 
-setopt SHARE_HISTORY
-
-setopt RM_STAR_WAIT
 
 #addendum to git plugin
 alias gd='git diff -w'
