@@ -40,6 +40,7 @@ CPULoad3=0
 MpdInfo=0
 MpdRandom="Off"
 MpdRepeat="Off"
+Volume=0
 
 #clickable areas
 VOL_MUTE_CMD="/usr/bin/mute_toggle"
@@ -52,17 +53,16 @@ MPD_NEXT_CMD="ncmpcpp next"
 MPD_PREV_CMD="ncmpcpp prev"
 CAL_CMD="sh ${HOME}/bin/dzencal.sh"
 
-# Perc=$(ossmix | sed -n 's/vmix0-outvol[^0-9]*\([0-9.]\+\).*/\1/p') 
+# Volume=$(ossmix | sed -n 's/vmix0-outvol[^0-9]*\([0-9.]\+\).*/\1/p') 
 # TODO move perc to conky
 printVolInfo() {
-    Perc=$(pacmd list-sinks | sed -n 's/\svolume:\s0:\s*\([0-9]\{1,3\}%\).*/\1/p' | tail -n1)
-    echo -n "^fg() ^ca(1,$VOL_MUTE_CMD)^ca(4,$VOL_UP_CMD)^ca(5,$VOL_DOWN_CMD)VOL^ca()^ca()^ca() "
-        if [[ $Perc != 0.0 ]]; then
-            echo -n "$(echo $Perc | gdbar -fg $BAR_FG -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
+    echo -n "^fg() ^ca(1,$VOL_MUTE_CMD)^ca(4,$VOL_UP_CMD)^ca(5,$VOL_DOWN_CMD)Vol^ca()^ca()^ca() "
+        if [[ $Volume != 0.0 ]]; then
+            echo -n "$(echo $Volume | gdbar -fg $BAR_FG -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
             echo -n "^fg()"
         else
-            echo -n "$(echo $Perc | gdbar -fg $BAR_FG -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
-            echo -n "^fg()${Perc}"
+            echo -n "$(echo $Volume | gdbar -fg $BAR_FG -bg $BAR_BG -h $BAR_H -w $BIGBAR_W -s o -ss 1 -sw 2 -nonl) "
+            echo -n "^fg()${Volume}"
             fi
             return
 }
@@ -100,7 +100,7 @@ printPacaurInfo() {
 printMocInfo() {
     MOCPON=$(pgrep mocp)
         if [[ $MOCPON == "0" ]]; then
-        echo -n "^fg()^ca(1,mpd)MOC^ca() ^fg()Off"
+        echo -n ""
     else
         echo -n "$MocInfo"
     fi
@@ -134,22 +134,21 @@ printSpace() {
 }
 printLeft() {
     while true; do
-        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp PackCount 
+        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp PackCount Volume MpdInfo
         printVolInfo
         printSpace
         printPacaurInfo
         printSpace
-        echo -n "$CurTemp "
-        echo -n "^fg()>^fg($BAR_FG)>^fg()> "
         #printMocInfo
-        #printMpdInfo
+        printMpdInfo
+        echo -n "^fg()>^fg($BAR_FG)>^fg()> "
         echo
     done
     return
 }
 printRight() {
     while true; do
-        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp PackCount 
+        read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp PackCount Volume MpdInfo
         printCPUInfo
         printSpace
         printMemInfo
@@ -157,6 +156,7 @@ printRight() {
         printTempInfo
         printSpace
         printDateInfo
+        echo -n "$CurTemp "
         echo
     done
     return
