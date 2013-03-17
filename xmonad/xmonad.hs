@@ -20,7 +20,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 -- Appearence
-myFont = "inconsolata:pixelsize=16:bold:antialias=true"
+myFont = "inconsolata:pixelsize=18:bold:antialias=true"
 colorBlack        = "#000000" --color0
 colorBlackAlt     = "#545454" --color8
 colorWhite        = "#ababab" --color7
@@ -75,15 +75,15 @@ newKeys x = M.union (keys defaultConfig x) (M.fromList (keysToAdd x))
 myKeys x = foldr M.delete (newKeys x) (keysToDel x)
 
 myWorkspaceBar, myBottomStatusBar, myTopStatusBar :: String
-myWorkspaceBar    = "dzen2 -x '1050' -y '0' -h '18' -w '1000' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
+myWorkspaceBar    = "dzen2 -x '1050' -y '0' -h '20' -w '1000' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
 myBottomStatusBar = ""
 myTopStatusBar    = "~/.xmonad/topbar.sh"
 
 myManageHook = composeAll
     [ className =? "Gimp"      --> doFloat
     , className =? "MPlayer" --> (ask >>= doF . W.sink)
-    , className =? "Chromium"  --> doShift "WWW" 
-    , className =? "Firefox"  --> doShift "WWW" 
+    , className =? "Chromium"  --> doShift "2"
+    , className =? "Firefox"  --> doShift "2"
     ]
 
 myXPconfig = defaultXPConfig
@@ -94,7 +94,7 @@ myXPconfig = defaultXPConfig
     , fgHLight            = colorWhite
     , borderColor         = colorWhiteAlt
     , promptBorderWidth   = 1
-    , height              = 18
+    , height              = 20
     , position            = Top
     , historySize         = 100
     , historyFilter       = deleteConsecutive
