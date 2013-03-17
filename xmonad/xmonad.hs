@@ -20,7 +20,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 -- Appearence
-myFont = "inconsolata:pixelsize=16:bold:antialias=true"
+myFont = "inconsolata:pixelsize=18:bold:antialias=true"
 colorBlack        = "#000000" --color0
 colorBlackAlt     = "#545454" --color8
 colorWhite        = "#ababab" --color7
@@ -82,8 +82,8 @@ myTopStatusBar    = "/home/william/.xmonad/topbar.sh"
 myManageHook = composeAll
     [ className =? "Gimp"      --> doFloat
     , className =? "MPlayer" --> (ask >>= doF . W.sink)
-    , className =? "Chromium"  --> doShift "WWW" 
-    , className =? "Firefox"  --> doShift "WWW" 
+    , className =? "Chromium"  --> doShift "2"
+    , className =? "Firefox"  --> doShift "2"
     ]
 
 myXPconfig = defaultXPConfig
@@ -94,7 +94,7 @@ myXPconfig = defaultXPConfig
     , fgHLight            = colorWhite
     , borderColor         = colorWhiteAlt
     , promptBorderWidth   = 1
-    , height              = 18
+    , height              = 20
     , position            = Top
     , historySize         = 100
     , historyFilter       = deleteConsecutive

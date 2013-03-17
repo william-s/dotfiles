@@ -9,7 +9,7 @@ BAR_H=10
 BIGBAR_W=65
 WIDTH_L=900
 WIDTH_R=1020 #WIDTH_L + WIDTH_R = 1920
-HEIGHT=18
+HEIGHT=20
 X_POS_L=0
 X_POS_R=900
 Y_POS=0
@@ -95,15 +95,6 @@ printMemInfo() {
     return
 }
 
-printDropBoxInfo() {
-    DropboxON=$(pgrep dropbox)
-    if [[ $DropboxON == "0" ]]; then
-        echo -n "^fg()^ca(1,$DROP_START_CMD)DBOX^ca() ^fg()Off"
-    else
-        echo -n "^fg()^ca(1,$DROP_STOP_CMD)DBOX^ca() ^fg($CRIT)On"
-    fi
-    return
-}
 
 printPacaurInfo() {
     echo -n "^fg()Pacaur ^fg()"
@@ -154,8 +145,6 @@ printLeft() {
     while true; do
         read DateTime CPULoad0 CPULoad1 CPULoad2 CPULoad3 MemPerc FSroot FShome CPUTemp MBDTemp GPUTemp CurTemp PackCount 
         printVolInfo
-        printSpace
-        printDropBoxInfo
         printSpace
         printPacaurInfo
         printSpace
