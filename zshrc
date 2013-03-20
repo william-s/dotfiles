@@ -1,7 +1,7 @@
 export PATH=$PATH:$HOME/bin:$HOME/.cabal/bin:$HOME/code/go/bin:$HOME/.rvm/bin
 export GOPATH=$HOME/code/go:$GOPATH
 
-for f in $HOME.zsh/0-9*.zsh; do
+for f in $HOME/.zsh/*.zsh; do
     source $f
 done
 
