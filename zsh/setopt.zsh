@@ -1,3 +1,6 @@
+autoload -U colors && colors
+autoload -U compinit && compinit
+
 # directory
 setopt \
     auto_cd \
