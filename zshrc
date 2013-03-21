@@ -1,21 +1,21 @@
 export PATH=$PATH:$HOME/bin:$HOME/.cabal/bin:$HOME/code/go/bin:$HOME/.rvm/bin
 export GOPATH=$HOME/code/go:$GOPATH
 
-for f in $HOME.zsh/0-9*.zsh; do
+HISTFILE=$HOME/.zsh/zhistory
+HISTSIZE=10000
+SAVEHIST=10000
+
+autoload -U colors && colors
+autoload -U compinit && compinit
+
+for f in $HOME/.zsh/*.zsh; do
     source $f
 done
 
-bin-exist() {[[ -x `which  $1 2>/dev/null` ]]}
 
 export EDITOR='vim'
 export PAGER='most'
 bindkey -e
-
-
-#addendum to git plugin
-alias gd='git diff -w'
-compdef _git gd=git-diff
-gg() { git grep "$*"; }
 
 
 function sshtunnel {
@@ -31,8 +31,6 @@ insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
 bindkey "^[s" insert-sudo  #makes alt-s insert-sudo
 
-setopt extended_glob
-
 preexec () {
     if [[ "$TERM" == "screen" ]]; then
 	local CMD=${1[(wr)^(*=*|sudo|-*)]}
@@ -46,5 +44,3 @@ sdate() { date +%m.%d.%Y }
 wikidig() { dig +short txt ${1}.wp.dg.cx }
 #prepend precise timestamps to tail
 tailTS() { tail -f ${1} | while read; do echo -e "$(date +%T.%N) $REPLY"; done }
-
-source ~/.aliases
