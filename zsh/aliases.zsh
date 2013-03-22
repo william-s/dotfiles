@@ -1,3 +1,5 @@
+bin-exist() {[[ -x `which  $1 2>/dev/null` ]]}
+
 #globals
 alias -g F=' | fmt -'
 alias -g M=' | most'
@@ -21,13 +23,13 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff='colordiff' 
 
+alias ls='ls --color=auto'
 alias l='ls -l  --human-readable'
 alias la='ls --almost-all'
 alias ll='l --almost-all'
 alias lx='ll -BX'           # sort by extension
 alias lz='ll -S --reverse'           # sort by size
 alias lt='ll -t --reverse'           # sort by date
-#alias lsd='ls -d .*(/) *(/)'
 alias lsd='ls --directory *(/)'
 
 alias tmux='tmux -u -2'
