@@ -1,6 +1,13 @@
 export PATH=$PATH:$HOME/bin:$HOME/.cabal/bin:$HOME/code/go/bin:$HOME/.rvm/bin
 export GOPATH=$HOME/code/go:$GOPATH
 
+HISTFILE=$HOME/.zsh/zhistory
+HISTSIZE=10000
+SAVEHIST=10000
+
+autoload -U colors && colors
+autoload -U compinit && compinit
+
 for f in $HOME/.zsh/*.zsh; do
     source $f
 done

@@ -1,20 +1,3 @@
-autoload -U colors && colors
-autoload -U compinit && compinit
-
-# directory
-setopt auto_cd \
-    auto_pushd \
-    auto_name_dirs \
-    cdable_vars       \
-    pushd_ignore_dups \
-    pushd_silent \
-    pushd_to_home \
-    rm_star_wait
-
-# smart urls
-autoload -U url-quote-magic
-zle -N self-insert url-quote-magic
-
 # completion
 setopt always_to_end \
     auto_menu \
@@ -28,6 +11,16 @@ setopt always_to_end \
     list_packed
 unsetopt menu_complete
 
+# directory
+setopt auto_cd \
+    auto_pushd \
+    auto_name_dirs \
+    cdable_vars       \
+    pushd_ignore_dups \
+    pushd_silent \
+    pushd_to_home \
+    rm_star_wait
+
 # expansion and globbing
 setopt brace_ccl \
     extended_glob \
@@ -35,6 +28,25 @@ setopt brace_ccl \
     multios \
     prompt_subst
 
+# history
+setopt \
+     inc_append_history \
+     append_history \
+     bang_hist \
+     extended_history \
+     no_hist_allow_clobber \
+     no_hist_beep \
+     hist_expire_dups_first \
+     hist_find_no_dups \
+     no_hist_ignore_dups \
+     hist_ignore_space \
+     no_hist_no_functions \
+     hist_no_store \
+     hist_reduce_blanks \
+     hist_save_by_copy \
+     hist_save_no_dups \
+     hist_verify \
+     share_history 
 # input/output
 setopt correct \
     interactive_comments \
@@ -45,6 +57,10 @@ unsetopt clobber \
 
 # job control
 setopt bg_nice
+
+# smart urls
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
 
 # zle
 unsetopt beep
