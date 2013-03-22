@@ -3,29 +3,34 @@ autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*'              enable        git #hg bzr cvs svn
-zstyle ':vcs_info:*'              actionformats '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*'              formats       '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat  '%b%F{1}:%F{3}%r'
+zstyle ':vcs_info:*' formats 'on %F{m}%b%c%u%m%F{n}'
+zstyle ':vcs_info:*' actionformats "%b%c%u|%F{c}%a%f"
 zstyle ':vcs_info:*' check-for-changes true
-
-local cmd_status prompt_name host_color
-cmd_status="%B%(?,%F{green}▲%f,%F{magenta}▼%f)%b"
-prompt_name="%(!,%F{red},%F{cyan})%n%f"
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    host_color=yellow
-else
-    host_color=blue
-fi
+zstyle ':vcs_info:git*+set-message:*' hooks git-status
+zstyle ':vcs_info:*' stagedstr '%F{g}●%f'
+zstyle ':vcs_info:*' unstagedstr '%F{y}●%f'
 
 
-PROMPT="${prompt_name}@%F{${host_color}}%m%f [%~] $(git_prompt_info)
+function vcs_info_wrapper() {
+    vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && echo "${vcs_info_msg_0_}%F{n}"
+}
+
+
+function set_prompt() {
+    local cmd_status prompt_name host_color
+    cmd_status="%(?,%F{green}★%f,%B%F{magenta}χ%b%f)"
+    prompt_name="%(!,%F{red},%F{cyan})%n%f"
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+        host_color=yellow
+    else
+        host_color=blue
+    fi
+    
+    PROMPT="${prompt_name}@%F{${host_color}}%m%f [%~]
 ${cmd_status} %B%(!,%F{red}#,%F{blue}λ)%f%b "
+    RPROMPT="$(vcs_info_wrapper)"
 
+}
 
-GIT_CLEAN_COLOR="%{$fg[blue]%}"
-GIT_DIRTY_COLOR="%{$fg[red]%}"
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="$GIT_CLEAN_COLOR ★"
-ZSH_THEME_GIT_PROMPT_DIRTY="$GIT_DIRTY_COLOR χ"
+set_prompt
