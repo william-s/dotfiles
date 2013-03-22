@@ -1,5 +1,6 @@
-export PATH=$PATH:$HOME/bin:$HOME/.cabal/bin:$HOME/code/go/bin:$HOME/.rvm/bin
-export GOPATH=$HOME/code/go:$GOPATH
+export \
+    PATH=$PATH:$HOME/bin:$HOME/.cabal/bin:$HOME/code/go/bin:$HOME/.rvm/bin \
+    GOPATH=$HOME/code/go:$GOPATH
 
 HISTFILE=$HOME/.zsh/zhistory
 HISTSIZE=10000
