@@ -44,6 +44,8 @@ alias g='git'
 compdef g='git'
 
 alias ..='cd ..'
+alias du='du -k --human-readable'
+alias df='df -k --human-readable'
 alias dud='du --summarize *(/)'
 alias mkdir='mkdir --parents --verbose'
 
@@ -76,4 +78,13 @@ alias sdj='journalctl' #add user to adm group to use journal w/o sudo
 alias sdgrep='sudo systemctl list-unit-files | grep'
 compdef _sdgrep='grep'
 
+# pacaur helpers
+alias pacs='pacaur -Ss'
+alias paci='pacaur -Sii'
+alias pacq='pacaur -Qs'
+alias pacqi='pacaur -Qii'
+alias pacd='pacaur -d'
+alias pacy='pacaur -Sy'
+alias pacc='pacaur -Qu'
+alias pacu='pacaur -Syu'
 # vim: set ft=zsh:
