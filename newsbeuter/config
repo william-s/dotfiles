@@ -5,7 +5,7 @@ error-log               "~/.newsbeuter/error.log"
 cleanup-on-quit         yes
 keep-articles-days      180
 refresh-on-startup      yes
-reload-time             15
+reload-time             30
 show-read-articles      no
 show-read-feeds         no
 suppress-first-reload   yes
@@ -16,7 +16,7 @@ browser         "links"
 player          "mplayer"
 
 # podcasts
-download-path   "~/Downloads/podcasts/%n"
+download-path   "~/Downloads/podcasts"
 max-downloads   2
 
 # key bindings
