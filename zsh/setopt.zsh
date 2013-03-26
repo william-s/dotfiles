@@ -1,7 +1,7 @@
 # completion
+unsetopt menu_complete
 setopt always_to_end \
     auto_menu \
-    auto_name_dirs \
     auto_param_keys \
     auto_param_slash \
     auto_remove_slash \
@@ -9,7 +9,6 @@ setopt always_to_end \
     complete_in_word \
     list_ambiguous \
     list_packed
-unsetopt menu_complete
 
 # directory
 setopt auto_cd \
@@ -27,6 +26,7 @@ setopt brace_ccl \
     long_list_jobs \
     multios \
     prompt_subst
+unsetopt case_glob
 
 # history
 setopt \
