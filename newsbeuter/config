@@ -1,4 +1,5 @@
 # settings
+<<<<<<< HEAD
 auto-reload             yes
 error-log               "~/.newsbeuter/error.log"
 cleanup-on-quit         yes
@@ -42,6 +43,51 @@ bind-key    k prev filebrowser
 
 bind-key    i quit article
 bind-key    i quit articlelist
+=======
+cleanup-on-quit     yes
+show-read-articles  no
+show-read-feeds     no
+refresh-on-startup  yes
+reload-time 10
+auto-reload yes
+suppress-first-reload yes
+text-width 72
+
+# programs
+browser         firefox
+player      mplayer
+
+# podcasts
+download-path ~/podcasts
+max-downloads 2
+
+notify-xterm yes
+notify-screen yes
+
+# key bindings
+unbind-key J
+bind-key J pagedown feedlist
+bind-key J next-feed articlelist
+bind-key J next article
+unbind-key K
+bind-key K pageup feedlist
+bind-key K prev-feed articlelist
+bind-key K prev article
+unbind-key j
+bind-key j next feedlist
+bind-key j next articlelist
+bind-key j down article
+bind-key j next tagselection
+bind-key j next filebrowser
+unbind-key k
+bind-key k prev feedlist
+bind-key k prev articlelist
+bind-key k up article
+bind-key k prev tagselection
+bind-key k prev filebrowser
+
+bind-key i quit article
+>>>>>>> origin/zsh
 
 # colors
 color background   white   black
