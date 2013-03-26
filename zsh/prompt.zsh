@@ -1,4 +1,3 @@
-setopt prompt_subst
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 
