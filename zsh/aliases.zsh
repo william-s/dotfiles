@@ -37,6 +37,7 @@ alias open='xdg-open'
 
 alias v='vim --servername base --remote-silent'
 compdef v='vim'
+alias svim='sudo vim'
 alias cleanvim='find ./ -type f -iname ".*.*sw*" -print0 | xargs --interactive -0 rm' # seems safer than find -delete
 alias em='emacs --no-window-system'
 
@@ -48,6 +49,7 @@ alias du='du -k --human-readable'
 alias df='df -k --human-readable'
 alias dud='du --summarize *(/)'
 alias mkdir='mkdir --parents --verbose'
+alias d='dirs -v'
 
 alias ping='ping -c 5'
 (bin-exist mtr) && alias traceroute='mtr' #remember mtr!
@@ -62,7 +64,7 @@ alias c='clear'
 
 alias sshkey='eval $(/usr/bin/keychain --eval --agents ssh --quick --quiet ~/.ssh/id_rsa)'
 
-alias rsync='rsync --progress'
+alias rsync='rsync --progress -h'
 alias rsync-ntfs='rsync --archive --verbose --modify-window=1'
 
 #systemd

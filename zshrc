@@ -1,5 +1,5 @@
 export \
-    PATH=$PATH:$HOME/bin:$HOME/.cabal/bin:$HOME/code/go/bin:$HOME/.rvm/bin \
+    PATH=$PATH:$HOME/bin:$HOME/.cabal/bin:$HOME/code/go/bin:$HOME/.rbenv/bin \
     GOPATH=$HOME/code/go:$GOPATH
 
 HISTFILE=$HOME/.zsh/zhistory
@@ -13,6 +13,7 @@ for f in $HOME/.zsh/*.zsh; do
     source $f
 done
 
+eval "$(rbenv init -)"
 
 export EDITOR='vim'
 export PAGER='most'
@@ -30,7 +31,7 @@ function 7z2 {
 
 insert_sudo () { zle beginning-of-line; zle -U "sudo " }
 zle -N insert-sudo insert_sudo
-bindkey "^[s" insert-sudo  #makes alt-s insert-sudo
+bindkey "^[r" insert-sudo  #makes alt-r insert-sudo
 
 preexec () {
     if [[ "$TERM" == "screen" ]]; then
