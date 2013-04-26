@@ -1,0 +1,18 @@
+Config { font = "xft:Inconsolata:size=14"
+       , bgColor = "black"
+       , fgColor = "white"
+       , position =  Top
+       , lowerOnStart = True
+       , commands = [ Run StdinReader
+                    , Run MultiCpu ["-t","CPU: <total0>/<total1>/<total2>/<total3>%","-L","5","-H","50","-l","green","--normal","orange","--high","red"] 20
+                    , Run Memory ["-t","Mem: <usedratio>%","-l","green","--normal","orange","--high","red"] 100
+                    , Run Network "net0" ["-L","0","-H","32","-l","green","--normal","orange","--high","red"] 20
+                    , Run Date "%m.%d %I:%M" "date" 600
+                    , Run Weather "KMDW" ["-t","<tempF>°F","-L","55","-H","80","--normal","green","--high","red","--low","lightblue"] 18000
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %multicpu% %memory% %net0% %date% %KMDW% "
+       }
+
+-- vim: ft=haskell

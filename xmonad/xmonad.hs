@@ -35,11 +35,11 @@ colorCyan         = "#29a385" --color6
 colorCyanAlt      = "#52e0e0" --color14
 
 myDzenPP h = defaultPP
-            { ppCurrent  = dzenColor colorRedAlt colorBlack . wrap "[" "]" --active tag
-            , ppVisible  = dzenColor colorYellowAlt colorBlack . wrap "[" "]"  --visible tag
-            , ppHidden   = dzenColor colorCyanAlt   colorBlack  . wrap "" ""  --tag color
+            { ppCurrent  = xmobarColor colorRed "black" . wrap "[" "]" --active tag
+            , ppVisible  = xmobarColor colorYellowAlt "black" . wrap "[" "]"  --visible tag
+            , ppHidden   = xmobarColor colorCyanAlt   "black"  . wrap "" ""  --tag color
             , ppOutput   = hPutStrLn h 
-            , ppTitle    = dzenColor colorYellow colorBlack . pad  . shorten 80
+            , ppTitle    = xmobarColor colorYellow "black" . pad  . shorten 80
             }
 
 keysToAdd x = 
@@ -74,10 +74,12 @@ keysToDel x = []
 newKeys x = M.union (keys defaultConfig x) (M.fromList (keysToAdd x))
 myKeys x = foldr M.delete (newKeys x) (keysToDel x)
 
-myWorkspaceBar, myBottomStatusBar, myTopStatusBar :: String
-myWorkspaceBar    = "dzen2 -x '1050' -y '0' -h '20' -w '1000' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
-myBottomStatusBar = ""
-myTopStatusBar    = "~/.xmonad/topbar.sh"
+myXmobar = "xmobar -x 1 /home/william/.xmonad/xmobarrc"
+
+-- myWorkspaceBar, myBottomStatusBar, myTopStatusBar :: String
+-- myWorkspaceBar    = "dzen2 -x '1050' -y '0' -h '20' -w '1000' -ta 'l' -fg '" ++ colorWhiteAlt ++ "' -bg '" ++ colorBlack ++ "' -fn '" ++ myFont ++ "' -p -e ''"
+-- myBottomStatusBar = ""
+-- myTopStatusBar    = "~/.xmonad/topbar.sh"
 
 myManageHook = composeAll
     [ className =? "Gimp"      --> doFloat
@@ -109,9 +111,10 @@ myLayoutHook = avoidStruts $  tiled ||| Mirror tiled ||| Full ||| Grid
 myLogHook = ewmhDesktopsLogHook >> setWMName "LG3D"
 myStartupHook = setWMName "LG3D" >> setDefaultCursor xC_left_ptr
 
+
 main = do
-    workspaceBar <- spawnPipe myWorkspaceBar
-    topStatusBar <- spawnPipe myTopStatusBar
+    workspaceBar <- spawnPipe myXmobar
+    -- topStatusBar <- spawnPipe myTopStatusBar
     xmonad $ ewmh defaultConfig
         { terminal    = "urxvtc"
         , modMask     = mod4Mask -- Win key or Super_L
