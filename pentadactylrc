@@ -16,5 +16,6 @@ vmap -builtin : ;
 :hi -a font-size: 13px !important;
 
 set passkeys+='www.google.com/reader':jkiv
+set passkeys+='www.feedly.com/':jkimnpov,gg,ga
 
 " vim: set ft=vim:
