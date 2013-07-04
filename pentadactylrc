@@ -17,5 +17,6 @@ vmap -builtin : ;
 
 set passkeys+='www.google.com/reader':jkiv
 set passkeys+='www.feedly.com/':jkmnpovxs,gm,ga,gg
+set passkeys+='cloud.feedly.com/':jkmnpovxs,gm,ga,gg
 
 " vim: set ft=vim:
