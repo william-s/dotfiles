@@ -9,15 +9,15 @@ SAVEHIST=10000
 autoload -U colors && colors
 autoload -U compinit && compinit
 
+export EDITOR='vim'
+export PAGER='most'
+bindkey -e
+
 for f in $HOME/.zsh/*.zsh; do
     source $f
 done
 
 eval "$(rbenv init -)"
-
-export EDITOR='vim'
-export PAGER='most'
-bindkey -e
 
 
 function sshtunnel {
