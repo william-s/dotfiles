@@ -3,12 +3,13 @@ URxvt.iconFile:    /usr/share/icons/Clarity/scalable/apps/terminal.svg
 URxvt.visualBell: true
 URxvt.urgentOnBell: true
 
-URxvt.perl-ext: default,matcher,url-picker
-URxvt.keysym.C-0xff0d:    perl:url-picker
+URxvt.perl-ext: default,url-select
+URxvt.keysym.C-0xff0d:    perl:url-select:select_next
 URxvt.keysym.Home:  \033[1~
 URxvt.keysym.End:  \033[4~
 
-URxvt.urlLauncher:   /usr/bin/firefox
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
 URxvt.scrollBar: off
 URxvt.depth: 32
 URxvt.borderless: 1
