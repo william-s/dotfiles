@@ -7,35 +7,39 @@ filetype off
 
 set nocompatible
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
 
-Bundle 'plasticboy/vim-markdown'
-Bundle 'Shougo/neocomplcache'
-Bundle 'SirVer/ultisnips'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'wincent/Command-T'
+Plugin 'VundleVim/Vundle.vim'
 
-Bundle 'matchit.zip'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'Shougo/neocomplcache'
+Plugin 'SirVer/ultisnips'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'wincent/Command-T'
+
+Plugin 'matchit.zip'
 
 " Language / Filetype Support
-Bundle 'pangloss/vim-javascript'
-Bundle 'lukerandall/haskellmode-vim'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'wavded/vim-stylus'
-Bundle 'tpope/vim-rails'
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'guns/vim-clojure-static'
+Plugin 'pangloss/vim-javascript'
+Plugin 'lukerandall/haskellmode-vim'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'wavded/vim-stylus'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-classpath'
+Plugin 'guns/vim-clojure-static'
+Plugin 'fatih/vim-go'
+Plugin 'elixir-lang/vim-elixir'
+
+call vundle#end()
 
 filetype on
 " Make backspace behave in a sane manner.
@@ -96,6 +100,12 @@ set listchars=tab:→\ ,eol:↓,trail:⊥
 autocmd FileType * set ai ts=2 sw=2 sts=2 sta et "autoindent tabstop shiftwidth softtabstop smarttab expandtab
 autocmd FileType make setlocal noexpandtab
 autocmd FileType mail set spell tw=78 formatprg="fmt -w 78"
+
+augroup filetypedetect
+  " Mail
+  autocmd BufRead,BufNewFile *mutt-* setfiletype mail
+  au FileType mail setlocal fo+=aw
+augroup END
 
 " Folding
 set foldignore= " don't ignore anything when folding
@@ -167,9 +177,9 @@ cnoremap <M-f> <S-Right>
 
 set shellslash
 if has("unix")
-    set shell=zsh
+  set shell=zsh
 else
-    set shell=ksh.exe
+  set shell=ksh.exe
 endif
 
 "-----------------------------------------------------------------------------
@@ -192,21 +202,21 @@ nnoremap <leader>du :diffup<cr>
 " Functions
 "-----------------------------------------------------------------------------
 function! ToggleFoldMethod()
-    if &foldmethod == 'indent'
-        set foldmethod=marker
-        echo "foldmethod=marker"
-    else
-        set foldmethod=indent
-        echo "foldmethod=indent"
-    endif
+  if &foldmethod == 'indent'
+    set foldmethod=marker
+    echo "foldmethod=marker"
+  else
+    set foldmethod=indent
+    echo "foldmethod=indent"
+  endif
 endfunction
 
 function! ToggleNumberMethod()
-    if &relativenumber
-        set number
-    else
-        set relativenumber
-    endif
+  if &relativenumber
+    set number
+  else
+    set relativenumber
+  endif
 endfunction
 
 "-----------------------------------------------------------------------------
@@ -217,18 +227,18 @@ set background=dark
 "colorscheme mango
 
 if has("gui_running")
-    let g:main_font = "Consolas\\ 11"
-    let g:small_font = "Consolas\\ 4"
+  let g:main_font = "Consolas\\ 11"
+  let g:small_font = "Consolas\\ 4"
 
-    exe "set guifont=" . g:main_font
-    set background=dark
-    if !exists("g:vimrcloaded")
-        winpos 0 0
-        if !&diff
-            winsize 130 120
-        else
-            winsize 227 120
-        endif
-        let g:vimrcloaded = 1
+  exe "set guifont=" . g:main_font
+  set background=dark
+  if !exists("g:vimrcloaded")
+    winpos 0 0
+    if !&diff
+      winsize 130 120
+    else
+      winsize 227 120
     endif
+    let g:vimrcloaded = 1
+  endif
 endif
