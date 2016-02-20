@@ -10,4 +10,4 @@ To install
 * xmonad config depends on `cabal install xmonad xmonad-contrib`
 
 Known issues
-* my omz set up and prompt are not handled by script
+* 
