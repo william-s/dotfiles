@@ -9,7 +9,7 @@ SAVEHIST=10000
 autoload -U colors && colors
 autoload -U compinit && compinit
 
-export EDITOR='vim'
+export EDITOR='emacsclient -t -a ""'
 export PAGER='most'
 bindkey -e
 
