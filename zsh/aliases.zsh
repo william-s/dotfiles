@@ -38,7 +38,8 @@ alias open='xdg-open'
 alias v='vim --servername base --remote-silent'
 compdef v='vim'
 alias cleanvim='find ./ -type f -iname ".*.*sw*" -print0 | xargs --interactive -0 rm' # seems safer than find -delete
-alias em='emacs --no-window-system'
+alias em='emacsclient -nc -a ""'
+alias emt='emacsclient -t -a ""'
 
 alias g='git'
 compdef g='git'

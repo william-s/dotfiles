@@ -9,6 +9,12 @@ SAVEHIST=10000
 autoload -U colors && colors
 autoload -U compinit && compinit
 
+
+export EDITOR='emacsclient -t -a ""'
+export PAGER='most'
+bindkey -e
+
+
 for f in $HOME/.zsh/*.zsh; do
     source $f
 done
