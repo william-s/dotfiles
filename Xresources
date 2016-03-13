@@ -1,5 +1,4 @@
 URxvt*font: xft:Consolas:style=Regular:pixelsize=16
-URxvt.iconFile:    /usr/share/icons/Clarity/scalable/apps/terminal.svg
 URxvt.visualBell: true
 URxvt.urgentOnBell: true
 
