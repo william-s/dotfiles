@@ -1,4 +1,4 @@
-URxvt*font: xft:Consolas:style=Regular:pixelsize=16
+URxvt.font: xft:Consolas:style=Regular:pixelsize=16
 URxvt.visualBell: true
 URxvt.urgentOnBell: true
 
