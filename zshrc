@@ -21,10 +21,6 @@ done
 
 eval "$(rbenv init -)"
 
-export EDITOR='vim'
-export PAGER='most'
-bindkey -e
-
 
 function sshtunnel {
     ssh -ND $2 -v $1
